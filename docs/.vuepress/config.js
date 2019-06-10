@@ -1,7 +1,15 @@
+const ogprefix = 'og: http://ogp.me/ns#'
+const title = 'Icetea testnet documentation'
+const description = 'Learn how to create powerful dApps and chatbots on Icetea blockchain.'
+
 module.exports = {
     title: 'Icetea Documentation',
     description: 'Icetea blockchain testnet documentation',
     head: [
+        ['meta', { prefix: ogprefix, property: 'og:title', content: title }],
+        ['meta', { prefix: ogprefix, property: 'og:description', content: description }],
+        ['meta', { prefix: ogprefix, property: 'twitter:title', content: title }],
+        ['meta', { prefix: ogprefix, property: 'og:image', content: 'https://docs.icetea.io/img/share.png' }],
         ['link', { rel: 'icon', href: 'https://icetea.io/favicon.ico' }]
     ],
     themeConfig: {

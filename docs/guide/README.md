@@ -20,7 +20,7 @@ To begin, let's go to [Icetea DevTools](https://devtools.icetea.io), open _Walle
 ## Create the first smart contract
 
 ::: tip WHAT IS A SMART CONTRACT?
-We use the term 'smart contract' because Ethereum popularized it. Think of it as a unit of code (e.g. script or bytecode) that is hosted on a network of connected peers (i.e. the 'blockchain'). It does not have to represent a 'contract', it can do whatever the runtime environment allows, contract is just an use case.
+We use the term 'smart contract' because Ethereum infamously popularized it. Think of it as a unit of code (e.g. script or bytecode) that is hosted on a network of connected peers (i.e. the 'blockchain'). It does not have to represent a 'contract', it can do whatever the runtime environment allows, contract is just an use case.
 :::
 
 ### Start with an empty contract
@@ -355,7 +355,7 @@ That's it. Now go playing with it. Here is a complete version on Icetea Studio.
 
 ## Progamatically call contracts
 
-In this step, we will learn how to programatically interact with the NumberStore contract we created during last step.
+In this step, we will learn how to programatically interact with the SimpleStore contract we created during last step.
 
 Any Icetea node may choose to expose a RPC interface so that clients can query for blockchain data and interact with contracts. However, working with that RPC directly is a little cumbersome, so we will use the [@iceteachain/web3](https://github.com/TradaTech/icetea-web3) library. It is a wrapper around Icetea node' RPC.
 
@@ -375,7 +375,7 @@ Then, craft a simple UI.
 ```
 It should looks something like this.
 
-TODO: screenshot
+<img src='./simplestore.png' style='width:207px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='SimpleStore Web UI'>
 
 Switch to JS editor, add initialize `IceteaWeb3` instance.
 
