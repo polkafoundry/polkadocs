@@ -136,7 +136,7 @@ But what if you want to store only numbers? Just add some [Flow](https://flow.or
 }
 ```
 
-Because they are valid Flow type annotations, you can use [Flow tool](https://flow.org/en/docs/install/) to for _static_ type checking if you wish to. In addition, Icetea also provide some basic _runtime_ type checking. Try deploy the above contract and call `setValue`, passing a string to see what happens!
+Because they are valid Flow type annotations, you can use [Flow tool](https://flow.org/en/docs/install/) for _static_ type checking if you wish to. In addition, Icetea also provide some basic _runtime_ type checking. Try deploy the above contract and call `setValue`, passing a string to see what happens!
 
 ::: tip NOTE
 Icetea does not perform runtime type check for nested objects. This is done intentionally for the sake of simplicity and performance. If you want to perform complex runtime type checking, no need to worry. Icetea allows your contract to access to robust type checking and input validation packages like `@hapi/joi` , `ajv` , `validator` to get the job done.
@@ -204,7 +204,7 @@ const { validate } = require(';')
 }
 ```
 
-The `;` package's `validate` method will throws if it encounters erros, so we don't need to throw manually. It will return the sanitized value on success.
+The `;` package's `validate` function will throws if it encounters errors, so we don't need to throw manually. It will return the sanitized value on success.
 
 ::: tip
 The 'magic' `;` module is in fact an alias to `@iceteachain/utils/utils` package. It also exports some other handy functions.
@@ -230,7 +230,7 @@ Our `SimpleStore` works just fine, but let's imagine this: the client requests o
 
 ### Interact with the runtime environment
 
-To obtain data for the new feature, the contract need to interact with the runtime environment. To be specific, it need to:
+To obtain necessary data for the new feature, the contract need to interact with the runtime environment. To be specific, it need to:
 - Query the blockchain for the address of the account who made the transaction
 - Request the runtime to emit an event each time someone change the value
 
