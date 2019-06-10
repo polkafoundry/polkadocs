@@ -1,0 +1,16 @@
+{
+  "name": "icetea-docs",
+  "version": "0.1.0",
+  "description": "Documentation for Icetea blockchain",
+  "main": "index.js",
+  "repository": "https://github.com/TradaTech/docs.git",
+  "author": "Trada Tech <iceteachain@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "vuepress": "^0.14.11"
+  }
+}
