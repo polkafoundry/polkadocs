@@ -79,7 +79,7 @@ The contract now can be built successfully. However, none of its methods is visi
 | ------------ | ------- |
 | @transaction | Indicate that this method updates contract state. |
 | @view        | This method reads (i.e. _view_) contract state, but it won't update. |
-| @pure        | This method does not access contract state (neither read nor update). This decorator is often used for utility functions. |
+| @pure        | This method does not access contract state (neither read nor update). This decorator is often applied to utility functions. |
 | @payable     | Same as @transaction with one addition: user can attach some amount of asset when calling the method. If you don't understand what that means, just ignore for now, we'll come back later. |
 
 ::: warning NOTE
@@ -204,7 +204,7 @@ const { validate } = require(';')
 }
 ```
 
-This `validate` method will throws if it encounters erros, so we don't need to throw manually. It will return the sanitized value on success.
+The `;` package's `validate` method will throws if it encounters erros, so we don't need to throw manually. It will return the sanitized value on success.
 
 ::: tip
 The 'magic' `;` module is in fact an alias to `@iceteachain/utils/utils` package. It also exports some other handy functions.
@@ -273,7 +273,7 @@ class RichMan {
     // Access to message data
     const she = msg.sender
     const methodName = msg.name // this should equal 'test'
-    return `{she} calls ${methodName} method at ${blockTime}.`
+    return `${she} calls ${methodName} method at ${blockTime}.`
   }
 
   @transaction
@@ -311,11 +311,11 @@ const { expect } = require(';')
 }
 ```
 
-Details about these data and functions are available in Reference section. For now, let's come back to our `SimpleStore` requested feature.
+Details about these data and functions are available in Reference section. For now, let's come back to the `SimpleStore`'s newly requested feature.
 
 ### The complete contract
 
-With all the knowledge we learn together so far, let's finish our contract.
+With all the knowledge we learnt together so far, let's finish our contract.
 
 ```js
 const Joi = require('@hapi/joi')
@@ -353,11 +353,11 @@ That's it. Now go playing with it. Here is a complete version on Icetea Studio.
 
 <iframe src="https://studio.icetea.io/?embed&f=4shrjq3j5gf" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
-## Progamatically call contracts
+## Programatically call contracts
 
-In this step, we will learn how to programatically interact with the SimpleStore contract we created during last step.
+In this step, we will learn how to programatically interact with the `SimpleStore` contract we created during last step.
 
-Any Icetea node may choose to expose a RPC interface so that clients can query for blockchain data and interact with contracts. However, working with that RPC directly is a little cumbersome, so we will use the [@iceteachain/web3](https://github.com/TradaTech/icetea-web3) library. It is a wrapper around Icetea node' RPC.
+Any Icetea node may choose to expose an RPC interface so that clients can query for blockchain data and interact with contracts. However, working with that RPC directly is a little cumbersome, so we will make use of the [@iceteachain/web3](https://github.com/TradaTech/icetea-web3) library. It is a wrapper around the Icetea node' RPC.
 
 ### Setup @iceteachain/web3
 
@@ -377,7 +377,7 @@ It should looks something like this.
 
 <img src='./simplestore.png' style='width:207px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='SimpleStore Web UI'>
 
-Switch to JS editor, add initialize `IceteaWeb3` instance.
+Switch to JS editor and add some code to initialize an `IceteaWeb3` instance.
 
 ```js
 // sse Icetea public node' RPC
@@ -427,7 +427,7 @@ There are 3 ways to invoke a contract's `@transaction` method: `sendAsync`, `sen
 
 Now, back to the `sendXXX` stuff.
 - `sendAsync`: send the transaction and return immediately without wait for any kind of confirmation
-- `sendSync`: send the transaction and wait until it passes preliminary check and be accepted as a _pending transaction_. Technically, it wait until the transaction is accepted into the transaction pool (also called `mempool`).
+- `sendSync`: send the transaction and wait until it passes preliminary check and be accepted as a _pending transaction_. Technically, it waits until the transaction is accepted into the transaction pool (also called `mempool`).
 - `sendCommit`: send the transaction and wait until it is included into the blockchain. Note that the transaction might succeed or fail (e.g. the contract method throws an error), but whatever the result is, the transaction was included pernamently into the blockchain.
 
 Back to our example, we want to display the new value after each change, so we should change from `sendAsync` to `sendCommit`.
@@ -461,13 +461,13 @@ contract.events.ValueSet(filter, function(error, data) {
 })
 ```
 
-Just like we access a contract's method with `contract.methods.someMethodName`, we subscribe to an event with `contract.event.SomeEventName`. Pass a filter object (ignore it for now) and a callback function which will get called each time an event of that type is emit by our contract.
+Just like we access a contract's method with `contract.methods.someMethodName`, we subscribe to an event with `contract.events.SomeEventName`. Pass a filter object (ignore it for now) and a callback function which will get called each time our contract emit an event of that type.
 
 ::: tip NOTE
 Events happen in the past (that is, before the time of subscription) will not trigger the callback.
 :::
 
-If you've gone this far, well-done! Now you are an Icetea Blockchain Developer :D. Just look at what we've done.
+If you've gone this far, well-done! You are an Icetea Blockchain Developer now :D. Let's take a look at what we've done.
 
 <iframe height="484" style="width: 100%;" scrolling="no" title="Icetea: NumberStore" src="//codepen.io/thith/embed/wbRLyd/?height=484&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/thith/pen/wbRLyd/'>Icetea: NumberStore</a> by Truong Hong Thi
