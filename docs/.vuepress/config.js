@@ -5,6 +5,7 @@ const description = 'Learn how to create powerful dApps and chatbots on Icetea b
 module.exports = {
     title: 'Icetea Documentation',
     description: 'Icetea blockchain testnet documentation',
+    ga: 'UA-8597504-7',
     head: [
         ['meta', { prefix: ogprefix, property: 'og:title', content: title }],
         ['meta', { prefix: ogprefix, property: 'og:description', content: description }],

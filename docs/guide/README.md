@@ -351,7 +351,7 @@ class SimpleStore {
 
 That's it. Now go playing with it. Here is a complete version on Icetea Studio.
 
-<iframe src="https://studio.icetea.io/?embed&f=e18hixrvbja" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+<iframe src="https://studio.icetea.io/?embed&f=4shrjq3j5gf" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
 ## Progamatically call contracts
 
