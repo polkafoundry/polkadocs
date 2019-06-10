@@ -391,7 +391,7 @@ const contract = tweb3.contract('teat1eyhvz5f92sdmz47zvkzsuq3xw7nfn5l84g6cms')
 ```
 
 ::: tip DO I NEED AN ACCOUNT?
-You don't need to `createAccount` when calling `@view` and `@pure` methods. It is required only to sign transactions. In our example, we'll need to call `setValue` which is a `@transaction`, so we need to create one. You can also use `tweb3.importAccount` to import an existing account.
+You don't need to `createAccount` when calling `@view` and `@pure` methods. The account is required only to sign transactions. In our example, we'll need to call `setValue` which is a `@transaction`, so we need to create one. You can also use `tweb3.importAccount` to import an existing account.
 :::
 
 Add a helper function to 'boost productivity' :D
@@ -406,11 +406,7 @@ function byId(id) {
 
 To call a method, you first need to obtain a reference to it, then invoke `callPure`, `call`, `send` depending on whether it is a `@pure`, `@view`, or `@transaction` method, respectively.
 
-To display the current value when page loads, let's add a call to `value` (it is a contract's field, but we'll need to 'call' it as we do with methods).
-
-::: tip NOTE
-To keep the code simple, we will skip error handling logic.
-:::
+To display the current value when page loads, let's add a call to constract's `value` (it is a contract's field, but we'll need to 'call' it as we do with methods).
 
 ```js{2}
 // do at page load to display current value
@@ -427,7 +423,7 @@ byId('setValue').addEventListener('click', function(e) {
 })
 ```
 
-There are 3 ways to invoke a contract's `@transaction` method: `sendAsync`, `sendSync`, and `sendCommit`. We'll explain the difference shortly. Before that, look carefully: we pass the parameter `newValue` to `setValue` instead of `sendAsync`. This is something you must remember and get familliar with, because it is not very intuitive at first.
+There are 3 ways to invoke a contract's `@transaction` method: `sendAsync`, `sendSync`, and `sendCommit`. We'll explain the difference shortly. Before that, look carefully: we pass the parameter `newValue` to `setValue` instead of to `sendAsync`. This is something you must remember and get familliar with, because it is not very intuitive at first.
 
 Now, back to the `sendXXX` stuff.
 - `sendAsync`: send the transaction and return immediately without wait for any kind of confirmation
