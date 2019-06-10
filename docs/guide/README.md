@@ -1,9 +1,9 @@
 # Getting Started
 
-This documentation will guide you how to build Icetea blockchain's dapps and chatbots.
+This guide's purpose is to get you started with Icetea blockchain programming. After 30 minutes, you'll know:
 
--   Learn how to use decorated Javascript to author smart contracts
--   Learn how to use IceteaWeb3 to interact with the deployed smart contracts
+- How to author a simple smart contract
+- How to interact with the deployed smart contract
 
 ## Tools we'll use
 
@@ -247,7 +247,7 @@ To access contract data, use `this`. For example:
 
 ```js{3,5,7}
 @contract class RichMan {
-  @transaction donate(receiver) {
+  @transaction donate(receiver: string) {
     const amount = this.balance
     // donate entire balance
     this.transfer(receiver, amount)
@@ -263,7 +263,7 @@ To access contract data, use `this`. For example:
 
 These blockchain data are made global, so you can access them directly. For example:
 
-```js{6,8,15}
+```js{6,8,9,16}
 @contract
 class RichMan {
   @transaction
@@ -271,12 +271,13 @@ class RichMan {
     // Access to block data
     const blockTime = new Date(block.timestamp)
     // Access to message data
-    const who = msg.sender
-    return `{sender} calls test() method at ${blockTime}.`
+    const she = msg.sender
+    const methodName = msg.name // this should equal 'test'
+    return `{she} calls ${methodName} method at ${blockTime}.`
   }
 
   @transaction
-  donate(receiver) {
+  donate(receiver: string) {
     // Only contract deployer can perform donation
     if (msg.sender === this.deployedBy) {
       // donate entire balance
@@ -300,7 +301,7 @@ These runtime functions are also made global.
 ```js{1,5}
 const { expect } = require(';')
 @contract class RichMan {
-  @transaction donate(receiver) {
+  @transaction donate(receiver: string) {
     // ensure the receiver has balance of zero
     expect(!balanceOf(receiver), 'Donate to zero-balance account only.')
 
@@ -403,15 +404,78 @@ function byId(id) {
 
 ### Call contract methods
 
-To call a method, you first need to obtain an reference to it, then invoke `callPure`, `call`, `send` depending on whether it is a `@pure`, `@view`, `@transaction` method, respectively.
+To call a method, you first need to obtain a reference to it, then invoke `callPure`, `call`, `send` depending on whether it is a `@pure`, `@view`, or `@transaction` method, respectively.
 
 To display the current value when page loads, let's add a call to `value` (it is a contract's field, but we'll need to 'call' it as we do with methods).
 
+::: tip NOTE
+To keep the code simple, we will skip error handling logic.
+:::
+
 ```js{2}
 // do at page load to display current value
-contract.methods.value().call().then(function(value) {
+contract.methods.value().call().then(value => {
 	byId('value').textContent = value
 })
 ```
+Next, register event handler for `setValue` button.
 
-TO BE CONTINUE...
+```js
+byId('setValue').addEventListener('click', function(e) {
+  const newValue = parseInt(byId('newValue').value)
+  contract.methods.setValue(newValue).sendAsync()
+})
+```
+
+There are 3 ways to invoke a contract's `@transaction` method: `sendAsync`, `sendSync`, and `sendCommit`. We'll explain the difference shortly. Before that, look carefully: we pass the parameter `newValue` to `setValue` instead of `sendAsync`. This is something you must remember and get familliar with, because it is not very intuitive at first.
+
+Now, back to the `sendXXX` stuff.
+- `sendAsync`: send the transaction and return immediately without wait for any kind of confirmation
+- `sendSync`: send the transaction and wait until it passes preliminary check and be accepted as a _pending transaction_. Technically, it wait until the transaction is accepted into the transaction pool (also called `mempool`).
+- `sendCommit`: send the transaction and wait until it is included into the blockchain. Note that the transaction might succeed or fail (e.g. the contract method throws an error), but whatever the result is, the transaction was included pernamently into the blockchain.
+
+Back to our example, we want to display the new value after each change, so we should change from `sendAsync` to `sendCommit`.
+
+```js
+byId('setValue').addEventListener('click', function(e) {
+  const newValue = parseInt(byId('newValue').value)
+  contract.methods.setValue(newValue).sendCommit().then(() => {
+    byId('value').textContent = newValue
+  })
+})
+```
+
+[EDIT ON CODEPEN](https://codepen.io/thith/pen/jjNzeJ)
+
+It works great. But there's one shortcomming: if Alice updates value, the updated value won't show on Bob's screen. Bob must reload the web page to get the updated value. Is there a way to help Bob? He does not like to reload screen every now and then :(
+
+Think about this a little bit...
+
+Yes! Events to the rescue! Remember that our contract emit an event called `ValueSet`, does it? Subscribe to an event is straitforward, look at this.
+
+```js
+const filter = {}
+contract.events.ValueSet(filter, function(error, data) {
+	if (error) {
+		console.error(error)
+		byId('value').textContent = String(error)
+	} else {
+		byId('value').textContent = data.newValue
+	}
+})
+```
+
+Just like we access a contract's method with `contract.methods.someMethodName`, we subscribe to an event with `contract.event.SomeEventName`. Pass a filter object (ignore it for now) and a callback function which will get called each time an event of that type is emit by our contract.
+
+::: tip NOTE
+Events happen in the past (that is, before the time of subscription) will not trigger the callback.
+:::
+
+If you've gone this far, well-done! Now you are an Icetea Blockchain Developer :D. Just look at what we've done.
+
+<iframe height="484" style="width: 100%;" scrolling="no" title="Icetea: NumberStore" src="//codepen.io/thith/embed/wbRLyd/?height=484&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/thith/pen/wbRLyd/'>Icetea: NumberStore</a> by Truong Hong Thi
+  (<a href='https://codepen.io/thith'>@thith</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+In the next chapters, we'll learn how to make more complex dApps and chatbots.

@@ -1,6 +1,9 @@
 module.exports = {
     title: 'Icetea Documentation',
-    description: 'Icetea blockchain ecosystem documentation',
+    description: 'Icetea blockchain testnet documentation',
+    head: [
+        ['link', { rel: 'icon', href: 'https://icetea.io/favicon.ico' }]
+    ],
     themeConfig: {
         logo: 'https://trada.tech/assets/img/logo.svg',
         nav: [
