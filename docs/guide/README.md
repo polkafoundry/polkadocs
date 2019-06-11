@@ -5,23 +5,36 @@ This guide's purpose is to get you started with Icetea blockchain programming. A
 - How to author a simple smart contract
 - How to interact with the deployed smart contract
 
-## Tools we'll use
+## Before you begin
 
-To try out Icetea blockchain you don't need to setup anything. Just use some online tools.
+### Skill requirements
+
+- Basic understanding of JavaScript
+- Knowledge of how blockchain works and experience of coding smart contract for other blockchains are useful but not required.
+
+### Tools
+
+We will use some available online tools.
 
 1. [Icetea Studio (https://studio.icetea.io)](https://studio.icetea.io)
 2. [Icetea DevTools (https://devtools.icetea.io)](https://devtools.icetea.io)
 3. [CodePen (https://codepen.io)](https://codepen.io)
 
-Later, when developing more complex dApps, other more advanced tools will be introduced.
+Later, when developing more complex dApps, more advanced tools will be introduced.
 
-To begin, let's go to [Icetea DevTools](https://devtools.icetea.io), open _Wallet_ tab, and create a new _Bank Account_ using default settings. We'll need it later.
+### Preparation
+
+Go to [Icetea DevTools Wallet](https://devtools.icetea.io/wallet.html) and click _Generate Bank Account_ button. This generated account is used for testing later on.
 
 ## Create the first smart contract
 
-::: tip WHAT IS A SMART CONTRACT?
-We use the term 'smart contract' because Ethereum infamously popularized it. Think of it as a unit of code (e.g. script or bytecode) that is hosted on a network of connected peers (i.e. the 'blockchain'). It does not have to represent a 'contract', it can do whatever the runtime environment allows, contract is just an use case.
-:::
+### What is a 'smart contract'?
+
+Ethereum infamously popularized the term 'smart contract'. It is better to ignore the meaning of the word 'contract' and think of it as a service, either stateful or stateless, hosted on blockchain. We will need to write the contract source code, compile it, then deploy it to the blockchain. After deployment, clients could send messages and exchange data with the contract.
+
+### What contract will we create?
+
+In this guide, we will create a contract named `SimpleStore`. Any user can set arbitrary values to the contract. However, it stores the last value only. Setting new value overwrites current one. Users can query for the contract's current value.
 
 ### Start with an empty contract
 
@@ -36,13 +49,13 @@ Click on the `mycontract.djs` file.  It should look like this.
 
 It is just a plain and ordinary JavaScript (ES6) class. The `@contract` decorator is there simply to indicate that this is a smart contract.
 
-We will create a simple `SimpleStore` smart contract - one that stores the last value the users set. First, rename the the class to `SimpleStore` and add a field named `value`.
+First, rename the the class to `SimpleStore` and add a field named `value`.
 ```javascript{2}
 @contract class SimpleStore {
   value = 0
 }
 ```
-`0` is the intial value. If you don't set, it defaults to `undefined`. The code snippet above uses _class instance field_ syntax which is an ES's proposed feature. Icetea supports most of the recent ES proposals natively, so you can utilize modern JavaScript confidently without the need of transpiling with tools like Babel.
+`0` is the intial value. If you don't set, it defaults to `undefined`. The code snippet above uses [class instance field syntax](https://developers.google.com/web/updates/2018/12/class-fields) which is an ES2019 proposal. Icetea supports most of the recent ES proposals out of the box, so you can utilize modern JavaScript confidently without the need of transpiling with tools like Babel.
 
 ### Specify contract state
 
@@ -83,7 +96,7 @@ The contract now can be built successfully. However, none of its methods is visi
 | @payable     | Same as @transaction with one addition: user can attach some amount of asset when calling the method. If you don't understand what that means, just ignore for now, we'll come back later. |
 
 ::: warning NOTE
-__@transaction__ and __@payable__ methods are expensive. Callers must send a transaction in order to invoke this kind of method. Transactions require consensus on blockchain network, and thus cost some fees. Therefore, never use these decorators if the method does not change state.
+__@transaction__ and __@payable__ methods are resource-intensive. Callers must send a transaction in order to invoke this kind of method. Transactions require consensus on blockchain network, and thus cost some fees. Therefore, never use these decorators if the method does not change state.
 
 __@pure__ methods are light-weight and should always be used if state access is not required.
 :::
@@ -116,10 +129,31 @@ You can also remove `getValue` method and make `value` externally assessible by 
 The only valid state access decorator for fields is `@view`. Therefore, you cannot mark `value` as `@transaction` and remove `setValue` method.
 :::
 
-That's it. Now, hit __Build__ button on the Icetea Studio toolbar. It should succeed. Then hit __Deploy__. Follow the link in the Icetea Studio output to get to the _Call Contract_ page, where you can try calling `setValue` method then getting  `value` value.
+That's it. Next, we'll deploy it to the Icetea testnet for testing.
+
+### Deploy and test
+
+Take a look at the Icetea Studio toobar.
+
+<img src='./toolbar.png' style='width:342px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='Icetea Studio Toolbar'>
+
+- __Build__: compile the contract. It will output to `out/mycontract.js` file upon success. _If you change the file content, don't forget to save (Ctrl/Cmd + S) the file before compiling._
+- __Deploy__: deploy the compiled contract to Icetea testnet
+- __Build & Deploy__: compile first, then deploy if compiling succeeded
+- __Call__: call deployed contracts. This will open the [_Call Contract_ page on DevTools](https://devtools.icetea.io/contract.html) because Icetea Studio does not has this feature built-in yet. 
+
+You can also go to _Call Contract_ page by holding Ctrl/Cmd and click on the _Test URL_ link in the Icetea Studio Output panel.
+
+<img src='./deploy.png' style='width:806px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='Deployment Output'>
+
+This is how the _Call Contract_ screen looks like.
+
+<img src='./call.png' style='width:629px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='DevTools Call Contract'>
+
+Select the contract method (function) you want to call from the dropdown list, supply the parameters if needed, then hit the _Call/Send_ button. The call's result will appear on the lower section.
 
 ::: tip
-Each deployed contract is given an address. You can call it anytime later if you know the address. Find the address in the Icetea Studio's Output panel after each time you deploy.
+Each deployed contract is given an address in form of `teat1...`. You can call it anytime later if you know the address. Find the address in the Icetea Studio's Output panel after each time you deploy.
 :::
 
 ### Add type checking
@@ -158,7 +192,7 @@ Now, let's add one more requirement: our `SimpleStore` shall accept only _non-ne
 }
 ```
 
-As you can see, to inform the caller about an error, just `throw` it. This will _undo all state changes_ (rollback the transaction).
+As you can see, to inform the caller about an error, just `throw` it. This will stop processing immediately and _undo all state changes_.
 
 To try out how to use external package, let's rewrite the validation logic with [@hapi/joi](https://github.com/hapijs/joi).
 ```js
@@ -207,10 +241,10 @@ const { validate } = require(';')
 The `;` package's `validate` function will throws if it encounters errors, so we don't need to throw manually. It will return the sanitized value on success.
 
 ::: tip
-The 'magic' `;` module is in fact an alias to `@iceteachain/utils/utils` package. It also exports some other handy functions.
+The magic `;` module is in fact an alias to `@iceteachain/utils/utils` package. It also exports some other handy functions.
 
-- `revert`: revert a transaction. `revert(message)` is equivalent to `throw new Error(message)`
-- `expect`: revert a transaction if the specified condition is not met. It is similar to Solidity's `require` function.
+- `revert`: stop processing and undo all state changes. `revert(message)` is equivalent to `throw new Error(message)`
+- `expect`: revert the transaction if the specified condition is not met. It is similar to Solidity's `require` function.
 - `toMicroUnit`: convert a currency from standard unit to micro unit, which is the unit used by Icetea to handle balance, transaction value, and fees.
 - `toStandardUnit`: convert a currency from micro unit to standard unit, which is user-friendly
 
@@ -349,7 +383,7 @@ class SimpleStore {
 }
 ```
 
-That's it. Now go playing with it. Here is a [complete version on Icetea Studio](https://studio.icetea.io/?embed&f=4shrjq3j5gf).
+That's it. Now go playing with it. Here is the [complete version on Icetea Studio](https://studio.icetea.io/?f=4shrjq3j5gf).
 
 ## Programmatically call contracts
 
@@ -402,9 +436,9 @@ function byId(id) {
 
 ### Call contract methods
 
-To call a method, you first need to obtain a reference to it, then invoke `callPure`, `call`, `send` depending on whether it is a `@pure`, `@view`, or `@transaction` method, respectively.
+On page load, we need to query `SimpleStore` for current value and display it onscreen. To do this, let's add a call to constract's `value` (it is a contract's field, but we'll need to 'call' it as if it is a method).
 
-To display the current value when page loads, let's add a call to constract's `value` (it is a contract's field, but we'll need to 'call' it as we do with methods).
+How do you call a contract method? First, obtain a reference to it, then invoke either `callPure`, `call`, or `send` depending on whether it is a `@pure`, `@view`, or `@transaction` method, respectively.
 
 ```js{2}
 // do at page load to display current value
