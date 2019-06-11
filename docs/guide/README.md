@@ -349,15 +349,13 @@ class SimpleStore {
 }
 ```
 
-That's it. Now go playing with it. Here is a complete version on Icetea Studio.
+That's it. Now go playing with it. Here is a [complete version on Icetea Studio](https://studio.icetea.io/?embed&f=4shrjq3j5gf).
 
-<iframe src="https://studio.icetea.io/?embed&f=4shrjq3j5gf" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+## Programmatically call contracts
 
-## Programatically call contracts
+In this step, we will learn how to programmatically interact with the `SimpleStore` contract we created during last step.
 
-In this step, we will learn how to programatically interact with the `SimpleStore` contract we created during last step.
-
-Any Icetea node may choose to expose an RPC interface so that clients can query for blockchain data and interact with contracts. However, working with that RPC directly is a little cumbersome, so we will make use of the [@iceteachain/web3](https://github.com/TradaTech/icetea-web3) library. It is a wrapper around the Icetea node' RPC.
+Any Icetea node may choose to expose an RPC interface so that clients can query for blockchain data and interact with contracts. However, working with that RPC directly is a little cumbersome, so we will make use of the [@iceteachain/web3](https://github.com/TradaTech/icetea-web3) library. It is a handy wrapper around the Icetea node' RPC.
 
 ### Setup @iceteachain/web3
 
@@ -461,10 +459,10 @@ contract.events.ValueSet(filter, function(error, data) {
 })
 ```
 
-Just like we access a contract's method with `contract.methods.someMethodName`, we subscribe to an event with `contract.events.SomeEventName`. Pass a filter object (ignore it for now) and a callback function which will get called each time our contract emit an event of that type.
+Just like we access a contract's method with `contract.methods.someMethodName`, we subscribe to an event with `contract.events.SomeEventName`. Pass a filter object (ignore it for now) and a callback function. The callback will get called each time the contract emits an event of that type.
 
 ::: tip NOTE
-Events happen in the past (that is, before the time of subscription) will not trigger the callback.
+Events emit before the time of subscription will not trigger the callback.
 :::
 
 If you've gone this far, well-done! You are an Icetea Blockchain Developer now :D. Let's take a look at what we've done.

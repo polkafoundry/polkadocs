@@ -9,7 +9,7 @@ features:
 - title: Reference
   details: JavaScript & Rust smart contract reference.
 - title: Tools & Libs
-  details: How to use popular tools & libs to making apps.
+  details: How to use popular tools & libs to make apps.
 footer: MIT Licensed | Copyright © 2019 Trada Tech
 ---
 
