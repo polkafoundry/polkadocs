@@ -146,7 +146,7 @@ You can also go to _Call Contract_ page by holding Ctrl/Cmd and click on the _Te
 
 <img src='./deploy.png' style='width:806px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='Deployment Output'>
 
-This is how the _Call Contract_ screen looks like.
+This is what the _Call Contract_ screen looks like.
 
 <img src='./call.png' style='width:629px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='DevTools Call Contract'>
 
@@ -405,7 +405,7 @@ Then, craft a simple UI.
 <p><input id=‘newValue’ placeholder=‘new value’>
 <button id=‘setValue’>setValue</button></p>
 ```
-It should looks something like this.
+It should look something like this.
 
 <img src='./simplestore.png' style='width:207px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='SimpleStore Web UI'>
 
@@ -442,14 +442,14 @@ How do you call a contract method? First, obtain a reference to it, then invoke 
 
 ```js{2}
 // do at page load to display current value
-contract.methods.value().call().then(value => {
+contract.methods.value().call().then(function(value) {
 	byId('value').textContent = value
 })
 ```
 Next, register event handler for `setValue` button.
 
-```js
-byId('setValue').addEventListener('click', function(e) {
+```js{3}
+byId('setValue').addEventListener('click', function() {
   const newValue = parseInt(byId('newValue').value)
   contract.methods.setValue(newValue).sendAsync()
 })
@@ -465,9 +465,9 @@ Now, back to the `sendXXX` stuff.
 Back to our example, we want to display the new value after each change, so we should change from `sendAsync` to `sendCommit`.
 
 ```js
-byId('setValue').addEventListener('click', function(e) {
+byId('setValue').addEventListener('click', function() {
   const newValue = parseInt(byId('newValue').value)
-  contract.methods.setValue(newValue).sendCommit().then(() => {
+  contract.methods.setValue(newValue).sendCommit().then(function() {
     byId('value').textContent = newValue
   })
 })
@@ -484,12 +484,12 @@ Yes! Events to the rescue! Remember that our contract emit an event called `Valu
 ```js
 const filter = {}
 contract.events.ValueSet(filter, function(error, data) {
-	if (error) {
-		console.error(error)
-		byId('value').textContent = String(error)
-	} else {
-		byId('value').textContent = data.newValue
-	}
+  if (error) {
+    console.error(error)
+    byId('value').textContent = String(error)
+  } else {
+    byId('value').textContent = data.newValue
+  }
 })
 ```
 
