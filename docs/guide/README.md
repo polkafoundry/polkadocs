@@ -273,7 +273,7 @@ To obtain necessary data for the new feature, the contract need to interact with
 - Query the blockchain for the address of the account who made the transaction
 - Request the runtime to emit an event each time someone change the value
 
-There are 3 categories of data and actions one can interact with the runtime enviroment.
+There are 3 categories of data and actions a contract can interact with the runtime enviroment.
 
 #### Contract data & actions
 - `address`: the address of current contract
