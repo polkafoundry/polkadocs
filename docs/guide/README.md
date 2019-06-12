@@ -24,7 +24,7 @@ Later, when developing more complex dApps, more advanced tools will be introduce
 
 ### Preparation
 
-Go to [Icetea DevTools Wallet](https://devtools.icetea.io/wallet.html) and click _Generate Bank Account_ button. This generated account is used for testing later on.
+Go to [Icetea DevTools Wallet](https://devtools.icetea.io/wallet.html) and click _Generate Bank Account_ button. This account is used for testing later on.
 
 ## Create the first smart contract
 
@@ -35,6 +35,10 @@ Ethereum infamously popularized the term 'smart contract'. It is better to ignor
 ### What contract will we create?
 
 In this guide, we will create a contract named `SimpleStore`. Any user can set arbitrary values to the contract. However, it stores the last value only. Setting new value overwrites current one. Users can query for the contract's current value.
+
+We will also make a simple web page to let user interact with the contract.
+
+<img src='./ui.png' style='width:210px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='SimpleStore Web UI'>
 
 ### Start with an empty contract
 
@@ -150,7 +154,7 @@ This is what the _Call Contract_ screen looks like.
 
 <img src='./call.png' style='width:629px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='DevTools Call Contract'>
 
-Select the contract method (function) you want to call from the dropdown list, supply the parameters if needed, then hit the _Call/Send_ button. The call's result will appear on the lower section.
+Select the contract method (function) you want to call from the dropdown list, supply the parameters if needed, then hit the _Call/Send_ button. The call's result will appear on the lower section of the page.
 
 ::: tip
 Each deployed contract is given an address in form of `teat1...`. You can call it anytime later if you know the address. Find the address in the Icetea Studio's Output panel after each time you deploy.
@@ -214,7 +218,7 @@ const Joi = require('@hapi/joi')
 }
 ```
 
-The validation logic of this contract is very simple and no need to use `@hapi/joi` - it is here just because we  want to demo how it works. Check out [@hapi/joi documentation](https://github.com/hapijs/joi/blob/v15.0.3/API.md) if your contract requires compex validation.
+The validation logic of this contract is very simple and no need to use `@hapi/joi` - it is here just because we  want to demo how it works. Check out [@hapi/joi documentation](https://github.com/hapijs/joi/blob/v15.0.3/API.md) if your contract requires complex validation.
 
 ::: tip NOTE
 If you want to use _assertion_ to test invariants, you can `require('assert')` to use Node's 'assert' core module.
@@ -245,8 +249,7 @@ The magic `;` module is in fact an alias to `@iceteachain/utils/utils` package. 
 
 - `revert`: stop processing and undo all state changes. `revert(message)` is equivalent to `throw new Error(message)`
 - `expect`: revert the transaction if the specified condition is not met. It is similar to Solidity's `require` function.
-- `toMicroUnit`: convert a currency from standard unit to micro unit, which is the unit used by Icetea to handle balance, transaction value, and fees.
-- `toStandardUnit`: convert a currency from micro unit to standard unit, which is user-friendly
+- `toMicroUnit`/`toStandardUnit`: convert a currency back and forth between standard unit (which is user-friendly) and micro unit (which is used internally by Icetea to store balance, fees, etc.)
 
 > 1 standard unit = 10<sup>6</sup> micro unit
 :::
@@ -262,7 +265,9 @@ Our `SimpleStore` works just fine, but let's imagine this: the client requests o
 - What is the old value
 - What is the new value
 
-### Interact with the runtime environment
+How do we do that with Icetea blockchain?
+
+### Interact with runtime environment
 
 To obtain necessary data for the new feature, the contract need to interact with the runtime environment. To be specific, it need to:
 - Query the blockchain for the address of the account who made the transaction
@@ -307,7 +312,7 @@ class RichMan {
     // Access to message data
     const she = msg.sender
     const methodName = msg.name // this should equal 'test'
-    return `${she} calls ${methodName} method at ${blockTime}.`
+    return `${she} calls ${methodName} at ${blockTime}.`
   }
 
   @transaction
@@ -412,7 +417,7 @@ It should look something like this.
 Switch to JS editor and add some code to initialize an `IceteaWeb3` instance.
 
 ```js
-// sse Icetea public node' RPC
+// wrap around an Icetea node' RPC
 const tweb3 = new icetea.IceteaWeb3('wss://rpc.icetea.io/websocket')
 
 // create a new random account, needed when calling setValue
@@ -436,7 +441,7 @@ function byId(id) {
 
 ### Call contract methods
 
-On page load, we need to query `SimpleStore` for current value and display it onscreen. To do this, let's add a call to constract's `value` (it is a contract's field, but we'll need to 'call' it as if it is a method).
+On page load, we need to query `SimpleStore` for its current value and display it onscreen. To do this, let's add a call to constract's `value` (it is a contract's field, but we'll need to 'call' the fields as if they are methods).
 
 How do you call a contract method? First, obtain a reference to it, then invoke either `callPure`, `call`, or `send` depending on whether it is a `@pure`, `@view`, or `@transaction` method, respectively.
 
@@ -459,10 +464,10 @@ There are 3 ways to invoke a contract's `@transaction` method: `sendAsync`, `sen
 
 Now, back to the `sendXXX` stuff.
 - `sendAsync`: send the transaction and return immediately without wait for any kind of confirmation
-- `sendSync`: send the transaction and wait until it passes preliminary check and be accepted as a _pending transaction_. Technically, it waits until the transaction is accepted into the transaction pool (also called `mempool`).
+- `sendSync`: send the transaction and wait until it passes preliminary check and be accepted as a _pending transaction_.
 - `sendCommit`: send the transaction and wait until it is included into the blockchain. Note that the transaction might succeed or fail (e.g. the contract method throws an error), but whatever the result is, the transaction was included pernamently into the blockchain.
 
-Back to our example, we want to display the new value after each change, so we should change from `sendAsync` to `sendCommit`.
+Back to our example, we want to display the new value after each committed change, so we should switch from `sendAsync` to `sendCommit`.
 
 ```js
 byId('setValue').addEventListener('click', function() {
@@ -475,11 +480,11 @@ byId('setValue').addEventListener('click', function() {
 
 [EDIT ON CODEPEN](https://codepen.io/thith/pen/jjNzeJ)
 
-It works great. But there's one shortcomming: if Alice updates value, the updated value won't show on Bob's screen. Bob must reload the web page to get the updated value. Is there a way to help Bob? He does not like to reload screen every now and then :(
+It works great. But there's one shortcomming: if Alice updates value, the updated value won't show on Bob's screen. Bob must reload the web page to get the updated value. Is there a way to help Bob? He does not like to reload screen every now and then that much :(
 
 Think about this a little bit...
 
-Yes! Events to the rescue! Remember that our contract emit an event called `ValueSet`, does it? Subscribe to an event is straitforward, look at this.
+Yes! Events to the rescue! Remember that our contract emits an event called `ValueSet`, doesn't it? Subscribe to an event is straitforward, look at this.
 
 ```js
 const filter = {}
