@@ -36,7 +36,7 @@ Ethereum infamously popularized the term 'smart contract'. It is better to ignor
 
 In this guide, we will create a contract named `SimpleStore`. Any user can set arbitrary values to the contract. However, it stores the last value only. Setting new value overwrites current one. Users can query for the contract's current value.
 
-We will also make a simple web page to let user interact with the contract.
+We will also make a simple web page to let users interact with the contract.
 
 <img src='./ui.png' style='width:210px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='SimpleStore Web UI'>
 
