@@ -400,7 +400,7 @@ Any Icetea node may choose to expose an RPC interface so that clients can query 
 
 To start, let's create a new pen on [codepen.io](https://codepen.io). First, add link to `@iceteachain/web3` to the beginning of your HTML.
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@iceteachain/web3@0.1.3/dist/browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@iceteachain/web3@0.1.4/dist/browser.min.js"></script>
 ```
 
 Then, craft a simple UI.
@@ -463,7 +463,7 @@ byId('setValue').addEventListener('click', function() {
 There are 3 ways to invoke a contract's `@transaction` method: `sendAsync`, `sendSync`, and `sendCommit`. We'll explain the difference shortly. Before that, look carefully: we pass the parameter `newValue` to `setValue` instead of to `sendAsync`. This is something you must remember and get familliar with, because it is not very intuitive at first.
 
 Now, back to the `sendXXX` stuff.
-- `sendAsync`: send the transaction and return immediately without wait for any kind of confirmation
+- `sendAsync`: send the transaction and return immediately without waiting for any kind of confirmation
 - `sendSync`: send the transaction and wait until it passes preliminary check and be accepted as a _pending transaction_.
 - `sendCommit`: send the transaction and wait until it is included into the blockchain. Note that the transaction might succeed or fail (e.g. the contract method throws an error), but whatever the result is, the transaction was included pernamently into the blockchain.
 
