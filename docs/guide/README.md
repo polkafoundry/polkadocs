@@ -3,7 +3,7 @@
 This guide's purpose is to get you started with Icetea blockchain programming. After 30 minutes, you'll know:
 
 - How to author a simple smart contract
-- How to interact with the deployed smart contract
+- How to build, deploy, and interact with smart contracts
 
 ## Before you begin
 
