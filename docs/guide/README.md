@@ -17,14 +17,9 @@ This guide's purpose is to get you started with Icetea blockchain programming. A
 We will use some available online tools.
 
 1. [Icetea Studio (https://studio.icetea.io)](https://studio.icetea.io)
-2. [Icetea DevTools (https://devtools.icetea.io)](https://devtools.icetea.io)
-3. [CodePen (https://codepen.io)](https://codepen.io)
+2. [CodePen (https://codepen.io)](https://codepen.io)
 
 Later, when developing more complex dApps, more advanced tools will be introduced.
-
-### Preparation
-
-Go to [Icetea DevTools Wallet](https://devtools.icetea.io/wallet.html) and click _Generate Bank Account_ button. This account is used for testing later on.
 
 ## Create the first smart contract
 
@@ -144,17 +139,10 @@ Take a look at the Icetea Studio toobar.
 - __Build__: compile the contract. It will output to `out/mycontract.js` file upon success. _If you change the file content, don't forget to save (Ctrl/Cmd + S) the file before compiling._
 - __Deploy__: deploy the compiled contract to Icetea testnet
 - __Build & Deploy__: compile first, then deploy if compiling succeeded
-- __Call__: call deployed contracts. This will open the [_Call Contract_ page on DevTools](https://devtools.icetea.io/contract.html) because Icetea Studio does not has this feature built-in yet. 
 
-You can also go to _Call Contract_ page by holding Ctrl/Cmd and click on the _Test URL_ link in the Icetea Studio Output panel.
+After deployment, you can call the contract's methods using _Call Contracts_ panel on the right-hand side of the studio.
 
-<img src='./deploy.png' style='width:806px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='Deployment Output'>
-
-This is what the _Call Contract_ screen looks like.
-
-<img src='./call.png' style='width:629px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='DevTools Call Contract'>
-
-Select the contract method (function) you want to call from the dropdown list, supply the parameters if needed, then hit the _Call/Send_ button. The call's result will appear on the lower section of the page.
+<img src='./call.png' style='width:629px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='Call Contracts'>
 
 ::: tip
 Each deployed contract is given an address in form of `teat1...`. You can call it anytime later if you know the address. Find the address in the Icetea Studio's Output panel after each time you deploy.
@@ -254,7 +242,7 @@ The magic `;` module is in fact an alias to `@iceteachain/utils/utils` package. 
 > 1 standard unit = 10<sup>6</sup> micro unit
 :::
 
-Voala! Try build and deploy the contract and play around with it on [DevTools](https://devtools.icetea.io).
+Voala! Try build and deploy the contract and play around with it a bit.
 
 ## Access to blockchain data
 
