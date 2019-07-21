@@ -142,7 +142,7 @@ Take a look at the Icetea Studio toobar.
 
 After deployment, you can call the contract's methods using _Call Contracts_ panel on the right-hand side of the studio.
 
-<img src='./call.png' style='width:629px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='Call Contracts'>
+<img src='./call.png' style='width:349px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='Call Contracts'>
 
 ::: tip
 Each deployed contract is given an address in form of `teat1...`. You can call it anytime later if you know the address. Find the address in the Icetea Studio's Output panel after each time you deploy.
