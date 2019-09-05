@@ -388,7 +388,7 @@ Any Icetea node may choose to expose an RPC interface so that clients can query 
 
 To start, let's create a new pen on [codepen.io](https://codepen.io). First, add link to `@iceteachain/web3` to the beginning of your HTML.
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@iceteachain/web3@0.1.4/dist/browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@iceteachain/web3@0.1.9/dist/browser.min.js"></script>
 ```
 
 Then, craft a simple UI.
