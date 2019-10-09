@@ -388,7 +388,7 @@ Any Icetea node may choose to expose an RPC interface so that clients can query 
 
 To start, let's create a new pen on [codepen.io](https://codepen.io). First, add link to `@iceteachain/web3` to the beginning of your HTML.
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@iceteachain/web3@0.1.4/dist/browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@iceteachain/web3@0.1.14/dist/browser.min.js"></script>
 ```
 
 Then, craft a simple UI.
@@ -412,7 +412,7 @@ const tweb3 = new icetea.IceteaWeb3('wss://rpc.icetea.io/websocket')
 tweb3.wallet.createAccount()
 
 // Note: replace the contract address with your actual address
-const contract = tweb3.contract('teat1eyhvz5f92sdmz47zvkzsuq3xw7nfn5l84g6cms')
+const contract = tweb3.contract('teat1tat8qw9s9ave7gfgq3tw0vccvrdguc743hrea8')
 ```
 
 ::: tip DO I NEED AN ACCOUNT?
