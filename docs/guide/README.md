@@ -376,7 +376,7 @@ class SimpleStore {
 }
 ```
 
-That's it. Now go playing with it. Here is the [complete version on Icetea Studio](https://studio.icetea.io/?f=4shrjq3j5gf).
+That's it. Now go playing with it. Here is the [complete version on Icetea Studio](https://studio.icetea.io/?f=t1d380n4ssm).
 
 ## Programmatically call contracts
 
@@ -388,7 +388,7 @@ Any Icetea node may choose to expose an RPC interface so that clients can query 
 
 To start, let's create a new pen on [codepen.io](https://codepen.io). First, add link to `@iceteachain/web3` to the beginning of your HTML.
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@iceteachain/web3@0.1.14/dist/browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@iceteachain/web3@0.2.5/dist/browser.min.js"></script>
 ```
 
 Then, craft a simple UI.
@@ -411,8 +411,8 @@ const tweb3 = new icetea.IceteaWeb3('wss://rpc.icetea.io/websocket')
 // create a new random account, needed when calling setValue
 tweb3.wallet.createAccount()
 
-// Note: replace the contract address with your actual address
-const contract = tweb3.contract('teat1tat8qw9s9ave7gfgq3tw0vccvrdguc743hrea8')
+// NOTE: replace the contract address with your actual address
+const contract = tweb3.contract('teat1d3vmdvpd4mzgreqz4jm8nq2qj8teemuy0xe0gu')
 ```
 
 ::: tip DO I NEED AN ACCOUNT?
@@ -481,7 +481,7 @@ contract.events.ValueSet(filter, function(error, data) {
     console.error(error)
     byId('value').textContent = String(error)
   } else {
-    byId('value').textContent = data.newValue
+    byId('value').textContent = data.eventData.newValue
   }
 })
 ```
