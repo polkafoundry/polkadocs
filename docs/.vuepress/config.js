@@ -1,10 +1,10 @@
 const ogprefix = 'og: http://ogp.me/ns#'
-const title = 'Icetea testnet documentation'
-const description = 'Learn how to create powerful dApps and chatbots on Icetea blockchain.'
+const title = 'Icetea Introduction'
+const description = 'Introduction about Icetea Platform.'
 
 module.exports = {
-    title: 'Icetea Documentation',
-    description: 'Icetea blockchain testnet documentation',
+    title: title,
+    description: description,
     ga: 'UA-8597504-7',
     head: [
         ['meta', { prefix: ogprefix, property: 'og:title', content: title }],
@@ -17,29 +17,9 @@ module.exports = {
         logo: 'https://trada.tech/assets/img/logo.svg',
         nav: [
             { text: 'Home', link: '/' },
-            { text: 'Guide', link: '/guide/' },
-            {
-                text: 'Reference',
-                items: [
-                    { text: 'JavaScript', link: '/djs/' },
-                    { text: 'Wasm (Rust)', link: '/wasm/' }
-                ]
-            },
-            {
-                text: 'Tools & Libs',
-                items: [
-                    { text: 'Tools', link: '/tools/' },
-                    { text: 'Libs', link: '/libs/' }
-                ]
-            },
+            { text: 'Developers', link: 'https://docs.icetea.io' },
             { text: 'Icetea', link: 'https://icetea.io' },
         ],
         sidebar: 'auto'
-        // sidebar: {
-        //     '/guide/': [
-        //         '',
-        //         'More Informations'
-        //     ]
-        // }
     }
 }
