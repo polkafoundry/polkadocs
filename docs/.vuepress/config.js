@@ -3,8 +3,8 @@ const title = 'Icetea Introduction';
 const description = 'Introduction about Icetea Platform.';
 
 module.exports = {
-  title,
-  description,
+  title: 'Icetea Platform',
+  description: 'Icetea blockchain Platform introduction',
   ga: 'UA-8597504-7',
   head: [
     ['meta', { prefix: ogprefix, property: 'og:title', content: title }],
@@ -16,18 +16,32 @@ module.exports = {
   themeConfig: {
     logo: 'https://trada.tech/assets/img/logo.svg',
     nav: [
-      { text: 'Home', link: '/' },
+      { text: 'Home', link: '/abstract/' },
       { text: 'Developers', link: 'https://docs.icetea.io' },
       { text: 'Icetea', link: 'https://icetea.io' },
     ],
     sidebar: [
       {
-        title: 'Home',   // required
-        path: '',      // optional, link of the title, which should be an absolute path and must exist
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 2,    // optional, defaults to 1
-        children: ['/']
+        title: 'Introduction',
+        collapsable: false,
+        sidebarDepth: 2,
+        children: [
+        '/abstract/',
+        '/about/',
+        '/feature/',
+        '/architecture/',
+        '/economic/',
+        '/roadmap/'
+        ]
       },
-    ]
+      {
+        title: 'Developers',
+        collapsable: false,
+        sidebarDepth: 2,
+        children: [
+        '/developer/'
+        ]
+      }
+    ],
   },
 };

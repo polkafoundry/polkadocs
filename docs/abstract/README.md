@@ -1,9 +1,4 @@
----
-home: true
-heroImage: https://trada.tech/assets/img/logo.svg
-actionText: Get Started →
-actionLink: /abstract/
----
+# Abstract
 
 Blockchain is a useful and revolutionary technology which is getting a lot of attention recently. However, despite much anticipation, no significant blockchain adoption has been observed. 
 
