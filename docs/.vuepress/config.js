@@ -16,30 +16,49 @@ module.exports = {
   themeConfig: {
     logo: 'https://trada.tech/assets/img/logo.svg',
     nav: [
-      { text: 'Home', link: '/abstract/' },
-      { text: 'Developers', link: 'https://docs.icetea.io' },
+      { text: 'Home', link: '/about/' },
+      { text: 'Developers', link: '/developer/' },
       { text: 'Icetea', link: 'https://icetea.io' },
     ],
     sidebar: [
       {
         title: 'Introduction',
-        collapsable: false,
         sidebarDepth: 2,
         children: [
-        '/abstract/',
         '/about/',
         '/feature/',
         '/architecture/',
         '/economic/',
-        '/roadmap/'
+        '/roadmap/',
+        '/conclusion/'
         ]
       },
       {
         title: 'Developers',
-        collapsable: false,
         sidebarDepth: 2,
         children: [
         '/developer/'
+        ]
+      },
+      {
+        title: 'Validator',
+        sidebarDepth: 2,
+        children: [
+        '/validator/'
+        ]
+      },
+      {
+        title: 'FAQ',
+        sidebarDepth: 2,
+        children: [
+        '/FAQ/'
+        ]
+      },
+      {
+        title: 'References',
+        sidebarDepth: 2,
+        children: [
+        '/reference/'
         ]
       }
     ],
