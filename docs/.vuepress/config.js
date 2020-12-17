@@ -47,13 +47,7 @@ module.exports = {
         '/validator/'
         ]
       },
-      {
-        title: 'FAQ',
-        sidebarDepth: 2,
-        children: [
-        '/FAQ/'
-        ]
-      },
+      '/FAQ/',
       {
         title: 'References',
         sidebarDepth: 2,
