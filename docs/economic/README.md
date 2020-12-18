@@ -21,10 +21,10 @@
 <br />
 <center><img src='./tokendist.png' style='width:700px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)'></center>
 
-<center>Figure 2: Icetea token distrubution</center>
+<center>Figure 4: Icetea token distrubution</center>
 <br />
 <br />
 
 <center><img src='./fundallo.png' style='width:700px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)'></center>
 
-<center>Figure 3: Icetea fund allocation</center>
+<center>Figure 5: Icetea fund allocation</center>

@@ -24,4 +24,4 @@ Under the hood, a full node includes the following primary components.
 
 6. A bunch of <b>​System Contracts</b>​ to enable Icetea Blockchain features like Asset Management, Alias (Naming) Management, Digital Identity, Permissions, Decentralized Gate, etc. Decentralized Gate is where a contract can communicate with the external, off-mainchain world.
 
-The Icetea Platform specifies how the blockchain shall communicate with off-chain data sources, trusted execution environments, and other blockchains. It also defines a protocol for working with a type of integrated sidechain called ‘autonomous area’. 
+The Icetea Platform specifies how the blockchain shall communicate with off-chain data sources, trusted execution environments, and other blockchains. It also defines a protocol for working with a type of integrated sidechain called ‘autonomous area’.

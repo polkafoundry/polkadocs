@@ -29,6 +29,7 @@ module.exports = {
         '/about/',
         '/feature/',
         '/architecture/',
+        '/concept/',
         '/economic/',
         '/roadmap/'
         ]
