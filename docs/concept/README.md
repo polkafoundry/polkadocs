@@ -1,4 +1,4 @@
-# Key Concept
+# Key Concepts
 
 ## Asset System
 Unlike Ethereum where each token has its own contract, Icetea Platform manages all assets via the Assets system contract. Think of it as a registry of all assets. It supports well-known asset types like fungible (similar to Ethereum’s ERC-20) and non-fungible ones (similar to Ethereum’s ERC-712) out of the box. Users can easily issue one by calling a function on the Assets contract, supplying asset parameters and sufficient issuance fees. No source code is needed.
