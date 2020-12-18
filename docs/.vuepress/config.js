@@ -23,7 +23,8 @@ module.exports = {
     sidebar: [
       {
         title: 'Introduction',
-        sidebarDepth: 2,
+        collapsable: false,
+        sidebarDepth: 1,
         children: [
         '/about/',
         '/feature/',
@@ -35,14 +36,16 @@ module.exports = {
       },
       {
         title: 'Developers',
-        sidebarDepth: 2,
+        collapsable: false,
+        sidebarDepth: 1,
         children: [
         '/developer/'
         ]
       },
       {
         title: 'Validator',
-        sidebarDepth: 2,
+        collapsable: false,
+        sidebarDepth: 1,
         children: [
         '/validator/'
         ]
@@ -50,7 +53,8 @@ module.exports = {
       '/FAQ/',
       {
         title: 'References',
-        sidebarDepth: 2,
+        collapsable: false,
+        sidebarDepth: 1,
         children: [
         '/reference/'
         ]
