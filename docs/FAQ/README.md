@@ -1,4 +1,4 @@
-# Frequent Asked Questions
+# FAQs
 
 ## What is Icetea?
 Icetea is an dApp development platform leveraging the advantages of blockchain technology to perceive the advanced digital economy.

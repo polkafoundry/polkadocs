@@ -30,8 +30,7 @@ module.exports = {
         '/feature/',
         '/architecture/',
         '/economic/',
-        '/roadmap/',
-        '/conclusion/'
+        '/roadmap/'
         ]
       },
       {
@@ -42,15 +41,16 @@ module.exports = {
         '/developer/'
         ]
       },
-      {
+      '/FAQ/',
+  /*    {
         title: 'Validator',
         collapsable: false,
         sidebarDepth: 1,
         children: [
         '/validator/'
-        ]
-      },
-      '/FAQ/',
+        ] 
+      }, 
+      
       {
         title: 'References',
         collapsable: false,
@@ -58,7 +58,7 @@ module.exports = {
         children: [
         '/reference/'
         ]
-      }
+      } */
     ],
   },
 };
