@@ -17,11 +17,11 @@ Instead, a signing token can be used in place of the private key solely for sign
 
 On current blockchains, all accounts are bank accounts (that is, they store cryptocurrency). Bank accounts require a high level of security. Even if an account is not designed to store cryptocurrency, the same over-strict security policy applies, which is too inconvenient to users.
 
-Icetea distinguishes between bank accounts and regular accounts. Regular accounts cannot receive and store cryptocurrency while bank accounts still function as they have always been. This is a meaningful piece of information for apps to fulfill the trade-off between security and convenience. For example, apps can include a "don't ask again" checkbox to reduce the number of future permissions or password prompts. 
+Icetea distinguishes between bank accounts and regular accounts. Regular accounts cannot receive and store cryptocurrency while bank accounts still function as they have always been. This is a meaningful piece of information for apps to balance the trade-off between security and convenience. For example, apps can include a "don't ask again" checkbox to reduce the number of future permissions or password prompts. 
 
 ### External Payer
 
-On current blockchains, a user has to stake or pay some amount of cryptocurrency (often called gas or fees) for each transaction he/she makes. Therefore, to try out an application, they will have to go to some unfamiliar and insecure exchanges to buy some cryptocurrency first. This has already made onboarding an unpleasant experience right from the beginning. 
+A user has to stake or pay some amount of cryptocurrency (often called gas or fees) on available blockchains for each transaction he/she makes. Therefore, to try out an application, they will have to go to some unfamiliar and insecure exchanges to buy some cryptocurrency first. This has already made onboarding an unpleasant experience right from the beginning. 
 
 Despite the fact that some apps try to mitigate this by utilizing a central payer, still, doing this ruins the benefit of blockchain. To overcome this hassle, Icetea allows an application to pay transaction fees for its users in a decentralized manner. As a result, Onboarding becomes seamless since apps now can employ much more flexible monetization strategies, such as free, freemium, pay-to-unlock, and in-dapp-purchase models.
 
@@ -30,7 +30,7 @@ Despite the fact that some apps try to mitigate this by utilizing a central paye
 
 Issuing a token is a lengthy and complicated process, especially when it involves customized business rules as well as the current firm’s technology infrastructure. This raises the cost of entry to the point that intimidates most small enterprises.
 
-Icetea has built-in support for common token types and rules, which turns the cumbersome process of token issuing and distribution into a simple task. To issue a token, all users required to do is simply fill out a form, no more complex step, no more legality concern. Plus, a small number of token issuing fees are applied to prevent spamming issues. 
+Icetea has built-in support for common token types and rules, which turns the cumbersome process of token issuing and distribution into a simple task. To issue a token, all users required to do is simply fill out a form, no complex step, no legality concern. Plus, a small number of token issuing fees are applied to prevent spamming issues. 
 
 ### Reusable Biz Templates
 
@@ -42,7 +42,7 @@ Icetea provides templates and building blocks for common tasks. Developers can g
 
 Transparency is a notable characteristic of blockchain. However, in this practical world, most users want to keep some parts of their data secret. Such secrets cannot be posted to smart contracts, thus limit the number of use cases of blockchain.
 
-Another problem is that blockchain transactions are just pseudonymous. In theory, the transaction sender’s address is merely some random text; however it is totally possible to trace such addresses to real people if they do KYC and their KYC data are abused or leaked. 
+Another problem is that blockchain transactions are just pseudonymous. In theory, the transaction sender’s address is merely some random text; however it is totally possible to trace such addresses to real people if they do KYC and their KYC data are unfortunately abused or leaked. 
 
 Hence, Icetea comes into the play by providing a TEE (Trusted Execution Environment) for applications run on its platform to handle sensitive data without ever exposing anything to the public. These data are encrypted before sending to the blockchain, then the TEE securely performs computation and discards the data right after. For those who want to conceal their transactions, they could transfer their assets to a privacy-focus sidechain first, do all their transactions there, and withdraw their assets back to the main chain.
 
@@ -52,13 +52,12 @@ Hence, Icetea comes into the play by providing a TEE (Trusted Execution Environm
 If a person suddenly passed away (e.g. in an accident), his/her entire crypto fortune will be locked forever as no one else has the private key to access the account. This is a notable characteristic of using cryptocurrency, however not everyone wants that.
 
 To overcome this drawback, Icetea allows a person to set others as inheritors. When the owner is inactive for a predefined period, one of the inheritors could activate the inheritance workflow to claim his/her inheritance rights, similar to a normal inheritance.
-Account Permissions
 
 ### Account Permissions
 
 It is a common situation that an account is owned by a group of people and has specific rules of management. On other blockchains, people achieve this by creating custom smart contracts, which is costly error-prone. 
 
-Icetea has a built-in fine-grained permission mechanism that supports each of the common scenarios, be it multiple-signature gathering, 2nd-factor authentication, spending budget, and quota. Account owners can set permissions for others, right from within their wallets.
+Icetea has a built-in, fine-grained permission mechanism that supports each of the common scenarios, from multiple-signature gathering, 2nd-factor authentication to spending budget, and even quota. Account owners can set permissions for others, right from within their wallets.
 
 ### Decentralized Chatbot
 
@@ -72,7 +71,7 @@ Icetea supports a special type of smart contract, named "decentralized bot". Tho
 Blockchain storage is scarce; hence, it is unaffordable to keep large data and files on-chain.
 Instead, they can possibly be stored on a cloud service and link (hash) them back to the blockchain. However, many apps want to avoid that centralized cloud to ensure complete censorship-resistance of their users' files. 
 
-DocuGuard is a professional, reliable, censorship-resistant decentralized storage service built upon the famous IPFS protocol. All applications built on Icetea Platform can now easily integrate with DocuGuard and Developers can conveniently pay for DocuGuard services using well-known Icetea tokens. 
+DocuGuard is a professional, reliable, censorship-resistant decentralized storage service built upon the famous IPFS protocol. All applications built on Icetea Platform can now easily integrate with DocuGuard and Developers can conveniently pay for DocuGuard services using the well-known Icetea tokens. 
 
 ### Decentralized Gate
 
@@ -82,7 +81,7 @@ Icetea offers a solution called Decentralized Gate - a network of computers cons
 
 ### Icetea Enterprise Edition
 
-In practice, many enterprises prefer to use a private chain rather than a public one to maintain a certain level of privacy. All data are sensitive and should be available to just a limited number of stakeholders.
+In practice, many enterprises prefer to use a private chain rather than a public one to maintain a certain level of privacy. All data are sensitive and should be available to a limited number of stakeholders.
 
 To resolve the above concern, Icetea comes with Icetea Enterprise Edition, a private-chain variation of Icetea. It is also possible to sync portions of the private chain’s data to the public chain, which turns the system into a legitimate hybrid chain. 
 
@@ -92,7 +91,7 @@ As a result, enterprises have many options to deploy their apps: either on a pri
 Built upon the battle-tested Tendermint engine, Icetea offers powerful solutions that enable apps to scale to millions.
 
 ### Powerful Consensus Engine
-At its core, Icetea uses Tendermint, the exceptional consensus engine which also powers the world’s top blockchain networks like Cosmos Network and Binance Chain – a super-active decentralized exchange.
+At its core, Icetea uses Tendermint, an exceptional consensus engine which also powers the world’s top blockchain networks like Cosmos Network and Binance Chain – a super-active decentralized exchange.
 
 ### Parallel Transaction Execution
 Most blockchains are still in their early stages, and transactions are processed sequentially. Icetea’s capacity of smartly selecting transactions for executing in parallel greatly improves transaction processing throughput.
