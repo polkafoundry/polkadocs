@@ -3,9 +3,9 @@
 ## UX-enabling features
 ### Icetea ID
 
-In order to prevent central authorities from abusing, blockchain apps require users to keep long and forgettable private keys or mnemonic phrases. Once lost, they lose access to their accounts completely without any way to recover. “I forgot password” feature is simply non-existed, and calling customer services doesn't make any difference either. In practice, users often save their keys, in plain text, on some note-keeping programs. However, this action significantly increases the risk of their keys being stolen or eavesdropped on. 
+To prevent central authorities from abusing, blockchain apps require users to keep long and forgettable private keys or mnemonic phrases. Once lost, they lose access to their accounts completely without any way to recover. The “I forgot password” feature is simply non-existed, and calling customer services doesn't make any difference either. In practice, users often save their keys, in plain text, on some note-keeping programs. However, this action significantly increases the risk of their keys being stolen or eavesdropped on. 
 
-Thus, Icetea ID is born to tackle this issue. It encrypts a user’s private key, splits it into parts, and safely stores it on multiple independent and secure key management services. This lifts the burden of keeping keys off users’ shoulder, while still preventing any single central authority from gaining access to the keys. Furthermore, recovery and 2nd factor authentication are possible for Icetea ID; and thus, onboarding and authentication will be much smoother with password-less experience – using either phone number, email, or social accounts to register. 
+Thus, Icetea ID is born to tackle this issue. It encrypts a user’s private key, splits it into parts, and safely stores it on multiple independent and secure key management services. This lifts the burden of keeping keys off users’ shoulder, while still preventing any single central authority from gaining access to the keys. Furthermore, recovery and 2-factor authentication are possible for Icetea ID; and thus, onboarding and authentication will be much smoother with a password-less experience – using either a phone number, email, or social accounts to register. 
 
 ### Signing Token
 
@@ -23,7 +23,7 @@ Icetea distinguishes between bank accounts and regular accounts. Regular account
 
 A user has to stake or pay some amount of cryptocurrency (often called gas or fees) on available blockchains for each transaction he/she makes. Therefore, to try out an application, they will have to go to some unfamiliar and insecure exchanges to buy some cryptocurrency first. This has already made onboarding an unpleasant experience right from the beginning. 
 
-Despite the fact that some apps try to mitigate this by utilizing a central payer, still, doing this ruins the benefit of blockchain. To overcome this hassle, Icetea allows an application to pay transaction fees for its users in a decentralized manner. As a result, Onboarding becomes seamless since apps now can employ much more flexible monetization strategies, such as free, freemium, pay-to-unlock, and in-dapp-purchase models.
+Although some apps try to mitigate this by utilizing a central payer, still, doing this ruins the benefit of blockchain. To overcome this hassle, Icetea allows an application to pay transaction fees for its users in a decentralized manner. As a result, Onboarding becomes seamless since apps now can employ much more flexible monetization strategies, such as free, freemium, pay-to-unlock, and in-dapp-purchase models.
 
 ## Biz-ready features
 ### 1-click Token Issuing
@@ -34,7 +34,7 @@ Icetea has built-in support for common token types and rules, which turns the cu
 
 ### Reusable Biz Templates
 
-The undeniable truth is, it really does take lots of time and manual efforts to create a biz app on a blockchain. The immediate costs, both tangible and opportunity, combining with the uncertainty of future return significantly hamper the blockchain adoption rate. 
+The undeniable truth is, it takes lots of time and manual efforts to create a biz app on a blockchain. The immediate costs, both tangible and opportunity, combining with the uncertainty of future return significantly hamper the blockchain adoption rate. 
 
 Icetea provides templates and building blocks for common tasks. Developers can get started quickly, and have their PoC up and running in a short time while external contributors and 3rd parties can also publish their shared packages to Icetea’s public package repository.
 
@@ -42,7 +42,7 @@ Icetea provides templates and building blocks for common tasks. Developers can g
 
 Transparency is a notable characteristic of blockchain. However, in this practical world, most users want to keep some parts of their data secret. Such secrets cannot be posted to smart contracts, thus limit the number of use cases of blockchain.
 
-Another problem is that blockchain transactions are just pseudonymous. In theory, the transaction sender’s address is merely some random text; however it is totally possible to trace such addresses to real people if they do KYC and their KYC data are unfortunately abused or leaked. 
+Another problem is that blockchain transactions are just pseudonymous. In theory, the transaction sender’s address is merely some random text; however it is possible to trace such addresses to real people if they do KYC and their KYC data are unfortunately abused or leaked. 
 
 Hence, Icetea comes into the play by providing a TEE (Trusted Execution Environment) for applications run on its platform to handle sensitive data without ever exposing anything to the public. These data are encrypted before sending to the blockchain, then the TEE securely performs computation and discards the data right after. For those who want to conceal their transactions, they could transfer their assets to a privacy-focus sidechain first, do all their transactions there, and withdraw their assets back to the main chain.
 
@@ -63,7 +63,7 @@ Icetea has a built-in, fine-grained permission mechanism that supports each of t
 
 Smart contracts are valuable tools to deliver promises in a trusted way. However, instead of interacting with them directly. users have to go through some middleware applications which require lots of time and effort to build. Such apps are often ambiguous, hence raising unwanted trust-issues. 
 
-Icetea supports a special type of smart contract, named "decentralized bot". Those bots reside on blockchain and can respond to users' queries. What’s more, bots can be stateful (e.g. they remember the user's previous messages) which can create meaningful conversations. Users can now chat to smart contracts right inside their wallets.
+Icetea supports a special type of smart contract, named "decentralized bot". Those bots reside on blockchain and can respond to users' queries. What’s more, bots can be stateful (e.g. they remember the user's previous messages) which can create meaningful conversations. Users can now chat with smart contracts right inside their wallets.
 
 ## Professional services
 ### DocuGuard
