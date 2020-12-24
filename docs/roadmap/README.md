@@ -1,12 +1,9 @@
 # Roadmap
 
-### 12/2021
-- Launch closed network
-- Launch FitGO
-- Launch inRECT
-### 4/2022
-- Launch iTEE
-- Launch LoveLock
-### 2nd half of 2022
-- Launch open network
-- Launch Logistics app
+### 01/2021
+- Launch Icetea's closed network
+- Launch [TeaWork](https://teawork.io/ "TeaWork's Homepage") - A dapp help you build your innovative and interactive team culture 
+### 04/2021
+- Update [LoveLock](https://lovelock.one/ "LoveLock's Homepage") - A niche social network for intimate relationships
+### 2nd half of 2021
+- Launch Icetea's open network
