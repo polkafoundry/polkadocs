@@ -10,7 +10,7 @@
 | Private Sale | 10M TEA | US$0.04(~) | US$400,000 | Jan 18th | 30 days |
 | Public Sale | 30M TEA | US$0.06 | US$1.5M | Feb or Mar | 30 days |
 
-<i>Note:</i> For Private Sale,  the price depends on strategic partners, negotiable but can’t be less than US$0.04/token. Colection is US$400,000 estimately.
+<i>Note:</i> For Private Sale,  the price depends on strategic partners, negotiable but can’t be less than US$0.04/token. The collection is US$400,000 estimated.
 
 ### Total Tokens Sale
 <font size = "4"> 46,000,000 TEA </font>
