@@ -1,3 +1,3 @@
 # Validator
 
-N/A
+To be updated soon
