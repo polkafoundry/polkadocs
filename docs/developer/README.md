@@ -10,7 +10,7 @@ This guide's purpose is to get you started with Icetea blockchain programming. A
 ### Skill requirements
 
 - Basic understanding of JavaScript
-- Knowledge of how blockchain works and experience of coding smart contract for other blockchains are useful but not required.
+- Knowledge of how blockchain works and experience in coding smart contracts for other blockchains are useful but not required.
 
 ### Tools
 
@@ -23,13 +23,13 @@ Later, when developing more complex dApps, more advanced tools will be introduce
 
 ## Create the first smart contract
 
-### What is a 'smart contract'?
+### What is a "smart contract"?
 
-Ethereum infamously popularized the term 'smart contract'. It is better to ignore the meaning of the word 'contract' and think of it as a service, either stateful or stateless, hosted on blockchain. We will need to write the contract source code, compile it, then deploy it to the blockchain. After deployment, clients could send messages and exchange data with the contract.
+Ethereum infamously popularized the term "smart contract". It is better to ignore the meaning of the word "contract" and think of it as a service, either stateful or stateless, hosted on the blockchain. We will need to write the contract source code, compile it, then deploy it to the blockchain. After deployment, clients could send messages and exchange data with the contract.
 
 ### What contract will we create?
 
-In this guide, we will create a contract named `SimpleStore`. Any user can set arbitrary values to the contract. However, it stores the last value only. Setting new value overwrites current one. Users can query for the contract's current value.
+In this guide, we will create a contract named `SimpleStore`. Any user can set arbitrary values to the contract. However, it stores the last value only. Setting a new value overwrites the current one. Users can query for the contract's current value.
 
 We will also make a simple web page to let users interact with the contract.
 
@@ -37,7 +37,7 @@ We will also make a simple web page to let users interact with the contract.
 
 ### Start with an empty contract
 
-We'll write the first smart contract in JavaScript. Let's head to [Icetea Studio](https://studio.icetea.io) and create an 'Empty JavaScript Smart Contract'.
+We'll write the first smart contract in JavaScript. Let's head to [Icetea Studio](https://studio.icetea.io) and create an "Empty JavaScript Smart Contract".
 
 Click on the `mycontract.djs` file.  It should look like this.
 ```javascript
@@ -54,17 +54,17 @@ First, rename the the class to `SimpleStore` and add a field named `value`.
   value = 0
 }
 ```
-`0` is the intial value. If you don't set, it defaults to `undefined`. The code snippet above uses [class instance field syntax](https://developers.google.com/web/updates/2018/12/class-fields) which is an ES2019 proposal. Icetea supports most of the recent ES proposals out of the box, so you can utilize modern JavaScript confidently without the need of transpiling with tools like Babel.
+`0` is the initial value. If you don't set it, it defaults to `undefined`. The code snippet above uses [class instance field syntax](https://developers.google.com/web/updates/2018/12/class-fields) which is an ES2019 proposal. Icetea supports most of the recent ES proposals out of the box, so you can utilize modern JavaScript confidently without the need of transpiling with tools like Babel.
 
 ### Specify contract state
 
-There is one thing to note. Although `value` is a contract _field_, its value _may not persist_ between external calls (that is, calls from client or from other contracts). The reason is that, due to memory restriction, the blockchain runtime might choose to serialize some of the contract instances to disk and load them back later. During this process, regular fields' values are discarded. To keep a field's value, you need to mark it with `@state`.
+There is one thing to note. Although `value` is a contract _field_, its value _may not persist_ between external calls (that is, calls from the client or other contracts). The reason is that, due to memory restriction, the blockchain runtime might choose to serialize some of the contract instances to disk and load them back later. During this process, regular fields' values are discarded. To keep a field's value, you need to mark it with `@state`.
 ```javascript{2}
 @contract class SimpleStore {
   @state value: number = 0
 }
 ```
-Now `value`'s value will persist between external calls. We can say it is part of the contract's _persistent state_, or just _state_ for short.
+Now `value`'s value will persist between external calls. We can say it is part of the contract's _persistent state_ or just _state_ for short.
 
 ::: warning NOTE
 Not every JavaScript type can be marked as `@state`. Currently, only values of types such as `number`, `string`, `boolean`, plain object, or array of those types can be serialized.
@@ -89,13 +89,13 @@ The contract now can be built successfully. However, none of its methods is visi
 
 | Decorator    | Meaning |
 | ------------ | ------- |
-| @transaction | Indicate that this method updates contract state. |
+| @transaction | Indicate that this method updates the contract state. |
 | @view        | This method reads (i.e. _view_) contract state, but it won't update. |
-| @pure        | This method does not access contract state (neither read nor update). This decorator is often applied to utility functions. |
-| @payable     | Same as @transaction with one addition: user can attach some amount of asset when calling the method. If you don't understand what that means, just ignore for now, we'll come back later. |
+| @pure        | This method does not access the contract state (neither read nor update). This decorator is often applied to utility functions. |
+| @payable     | Same as @transaction with one addition: user can attach some amount of asset when calling the method. If you don't understand what that means, just ignore it, for now, we'll come back later. |
 
 ::: warning NOTE
-__@transaction__ and __@payable__ methods are resource-intensive. Callers must send a transaction in order to invoke this kind of method. Transactions require consensus on blockchain network, and thus cost some fees. Therefore, never use these decorators if the method does not change state.
+__@transaction__ and __@payable__ methods are resource-intensive. Callers must send a transaction to invoke this kind of method. Transactions require consensus on the blockchain network and thus cost some fees. Therefore, never use these decorators if the method does not change state.
 
 __@pure__ methods are light-weight and should always be used if state access is not required.
 :::
@@ -128,19 +128,19 @@ You can also remove `getValue` method and make `value` externally assessible by 
 The only valid state access decorator for fields is `@view`. Therefore, you cannot mark `value` as `@transaction` and remove `setValue` method.
 :::
 
-That's it. Next, we'll deploy it to the Icetea testnet for testing.
+That's it. Next, we'll deploy it to the Icetea test net for testing.
 
 ### Deploy and test
 
-Take a look at the Icetea Studio toobar.
+Take a look at the Icetea Studio toolbar.
 
 <img src='./toolbar.png' style='width:342px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='Icetea Studio Toolbar'>
 
 - __Build__: compile the contract. It will output to `out/mycontract.js` file upon success. _If you change the file content, don't forget to save (Ctrl/Cmd + S) the file before compiling._
-- __Deploy__: deploy the compiled contract to Icetea testnet
+- __Deploy__: deploy the compiled contract to Icetea test net
 - __Build & Deploy__: compile first, then deploy if compiling succeeded
 
-After deployment, you can call the contract's methods using _Call Contracts_ panel on the right-hand side of the studio.
+After deployment, you can call the contract's methods using the _Call Contracts_ panel on the right-hand side of the studio.
 
 <img src='./call.png' style='width:349px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='Call Contracts'>
 
@@ -150,7 +150,7 @@ Each deployed contract is given an address in form of `teat1...`. You can call i
 
 ### Add type checking
 
-Our `SimpleStore` contract already works. It can store many types of values: `number`, `string`, `boolean`, array, plain object. That's due to the dynamic nature of JavaScript type system.
+Our `SimpleStore` contract already works. It can store many types of values: `number`, `string`, `boolean`, array, plain object. That's due to the dynamic nature of the JavaScript type system.
 
 But what if you want to store only numbers? Just add some [Flow](https://flow.org/)-style type annotations.
 ```js{2,3}
@@ -162,10 +162,10 @@ But what if you want to store only numbers? Just add some [Flow](https://flow.or
 }
 ```
 
-Because they are valid Flow type annotations, you can use [Flow tool](https://flow.org/en/docs/install/) for _static_ type checking if you wish to. In addition, Icetea also provide some basic _runtime_ type checking. Try deploy the above contract and call `setValue`, passing a string to see what happens!
+Because they are valid Flow type annotations, you can use [Flow tool](https://flow.org/en/docs/install/) for _static_ type checking if you wish to. Besides, Icetea provides some basic _runtime_ type checking. Try deploying the above contract and call `setValue`, passing a string to see what happens!
 
 ::: tip NOTE
-Icetea does not perform runtime type check for nested objects. This is done intentionally for the sake of simplicity and performance. If you want to perform complex runtime type checking, no need to worry. Icetea allows your contract to access to robust type checking and input validation packages like `@hapi/joi` , `ajv` , `validator` to get the job done.
+Icetea does not perform runtime type check for nested objects. This is done intentionally for the sake of simplicity and performance. If you want to perform complex runtime type checking, no need to worry. Icetea allows your contract to access robust type checking and input validation packages like `@hapi/joi` , `ajv` , `validator` to get the job done.
 ::: 
 
 ### Validate input
@@ -206,7 +206,7 @@ const Joi = require('@hapi/joi')
 }
 ```
 
-The validation logic of this contract is very simple and no need to use `@hapi/joi` - it is here just because we  want to demo how it works. Check out [@hapi/joi documentation](https://github.com/hapijs/joi/blob/v15.0.3/API.md) if your contract requires complex validation.
+The validation logic of this contract is very simple and no need to use `@hapi/joi` - it is here just because we want to demo how it works. Check out [@hapi/joi documentation](https://github.com/hapijs/joi/blob/v15.0.3/API.md) if your contract requires complex validation.
 
 ::: tip NOTE
 If you want to use _assertion_ to test invariants, you can `require('assert')` to use Node's 'assert' core module.
@@ -230,19 +230,19 @@ const { validate } = require(';')
 }
 ```
 
-The `;` package's `validate` function will throws if it encounters errors, so we don't need to throw manually. It will return the sanitized value on success.
+The `;` package's `validate` function will throw if it encounters errors, so we don't need to throw manually. It will return the sanitized value on success.
 
 ::: tip
-The magic `;` module is in fact an alias to `@iceteachain/utils/utils` package. It also exports some other handy functions.
+The magic `;` module is an alias to the `@iceteachain/utils/utils` package. It also exports some other handy functions.
 
 - `revert`: stop processing and undo all state changes. `revert(message)` is equivalent to `throw new Error(message)`
 - `expect`: revert the transaction if the specified condition is not met. It is similar to Solidity's `require` function.
-- `toMicroUnit`/`toStandardUnit`: convert a currency back and forth between standard unit (which is user-friendly) and micro unit (which is used internally by Icetea to store balance, fees, etc.)
+- `toMicroUnit`/`toStandardUnit`: convert a currency back and forth between the standard unit (which is user-friendly) and micro unit (which is used internally by Icetea to store balance, fees, etc.)
 
 > 1 standard unit = 10<sup>6</sup> micro unit
 :::
 
-Voala! Try build and deploy the contract and play around with it a bit.
+Voilà! Try building and deploying the contract and play around with it a bit.
 
 ## Access to blockchain data
 
@@ -255,19 +255,19 @@ Our `SimpleStore` works just fine, but let's imagine this: the client requests o
 
 How do we do that with Icetea blockchain?
 
-### Interact with runtime environment
+### Interact with the runtime environment
 
-To obtain necessary data for the new feature, the contract need to interact with the runtime environment. To be specific, it need to:
-- Query the blockchain for the address of the account who made the transaction
-- Request the runtime to emit an event each time someone change the value
+To obtain the necessary data for the new feature, the contract needs to interact with the runtime environment. To be specific, it needs to:
+- Query the blockchain for the address of the account that made the transaction
+- Request the runtime to emit an event each time someone changes the value
 
-There are 3 categories of data and actions a contract can interact with the runtime enviroment.
+There are 3 categories of data and actions a contract can interact with the runtime environment.
 
 #### Contract data & actions
-- `address`: the address of current contract
-- `balance`: the balance of current contract
-- `deployedBy`: the address of the account who deployed this contract
-- `transfer(to, amount)`: transfer an asset value from this contract to other account
+- `address`: the address of the current contract
+- `balance`: the balance of the current contract
+- `deployedBy`: the address of the account that deployed this contract
+- `transfer(to, amount)`: transfer an asset value from this contract to other accounts
 - `emitEvent(name, data)`: emit an event associated with this contract
 
 To access contract data, use `this`. For example:
@@ -285,8 +285,8 @@ To access contract data, use `this`. For example:
 ```
 
 #### Blockchain data
-- `msg`: data about current call, like `sender`, `signers`, `value` (amount of asset being transferred), etc.
-- `block`: data about current block, like `height`, `hash`, and `timestamp` (in _milliseconds_).
+- `msg`: data about the current call, like `sender`, `signers`, `value` (amount of asset being transferred), etc.
+- `block`: data about the current block, like `height`, `hash`, and `timestamp` (in _milliseconds_).
 
 These blockchain data are made global, so you can access them directly. For example:
 
@@ -315,7 +315,7 @@ class RichMan {
 ```
 
 ::: warning NOTE
-Only trust the value of `msg` if it is a transaction (i.e. it is inside a `@transaction` or `@payable` method). With `@view` and `@pure` methods, a caller can set `msg.sender ` to any value he/she wishes to because there is no need to _sign_ (i.e. attach a digital signature to) the message.
+Only trust the value of `msg` if it is a transaction (i.e. it is inside a `@transaction` or `@payable` method). With `@view` and `@pure` methods, a caller can set `msg.sender ` to any value he/she wishes to because there is no need to _sign_ (i.e. attach a digital signature) the message.
 :::
 
 #### Runtime functions
@@ -338,11 +338,11 @@ const { expect } = require(';')
 }
 ```
 
-Details about these data and functions are available in Reference section. For now, let's come back to the `SimpleStore`'s newly requested feature.
+Details about these data and functions are available in the Reference section. For now, let's come back to the `SimpleStore`'s newly requested feature.
 
 ### The complete contract
 
-With all the knowledge we learnt together so far, let's finish our contract.
+With all the knowledge we have learned together so far, let's finish our contract.
 
 ```js
 const Joi = require('@hapi/joi')
@@ -380,7 +380,7 @@ That's it. Now go playing with it. Here is the [complete version on Icetea Studi
 
 ## Programmatically call contracts
 
-In this step, we will learn how to programmatically interact with the `SimpleStore` contract we created during last step.
+In this step, we will learn how to programmatically interact with the `SimpleStore` contract we created during the last step.
 
 Any Icetea node may choose to expose an RPC interface so that clients can query for blockchain data and interact with contracts. However, working with that RPC directly is a little cumbersome, so we will make use of the [@iceteachain/web3](https://github.com/TradaTech/icetea-web3) library. It is a handy wrapper around the Icetea node' RPC.
 
@@ -416,7 +416,7 @@ const contract = tweb3.contract('teat1d3vmdvpd4mzgreqz4jm8nq2qj8teemuy0xe0gu')
 ```
 
 ::: tip DO I NEED AN ACCOUNT?
-You don't need to `createAccount` when calling `@view` and `@pure` methods. The account is required only to sign transactions. In our example, we'll need to call `setValue` which is a `@transaction`, so we need to create one. You can also use `tweb3.importAccount` to import an existing account.
+You don't need `createAccount` when calling `@view` and `@pure` methods. The account is required only to sign transactions. In our example, we'll need to call `setValue` which is a `@transaction`, so we need to create one. You can also use `tweb3.importAccount` to import an existing account.
 :::
 
 Add a helper function to 'boost productivity' :D
@@ -429,7 +429,7 @@ function byId(id) {
 
 ### Call contract methods
 
-On page load, we need to query `SimpleStore` for its current value and display it onscreen. To do this, let's add a call to constract's `value` (it is a contract's field, but we'll need to 'call' the fields as if they are methods).
+On page load, we need to query `SimpleStore` for its current value and display it onscreen. To do this, let's add a call to the contract's `value` (it is a contract's field, but we'll need to 'call' the fields as if they are methods).
 
 How do you call a contract method? First, obtain a reference to it, then invoke either `callPure`, `call`, or `send` depending on whether it is a `@pure`, `@view`, or `@transaction` method, respectively.
 
@@ -439,7 +439,7 @@ contract.methods.value().call().then(function(value) {
 	byId('value').textContent = value
 })
 ```
-Next, register event handler for `setValue` button.
+Next, register an event handler for `setValue` button.
 
 ```js{3}
 byId('setValue').addEventListener('click', function() {
@@ -448,12 +448,12 @@ byId('setValue').addEventListener('click', function() {
 })
 ```
 
-There are 3 ways to invoke a contract's `@transaction` method: `sendAsync`, `sendSync`, and `sendCommit`. We'll explain the difference shortly. Before that, look carefully: we pass the parameter `newValue` to `setValue` instead of to `sendAsync`. This is something you must remember and get familliar with, because it is not very intuitive at first.
+There are 3 ways to invoke a contract's `@transaction` method: `sendAsync`, `sendSync`, and `sendCommit`. We'll explain the difference shortly. Before that, look carefully: we pass the parameter `newValue` to `setValue` instead of to `sendAsync`. This is something you must remember and get familiar with because it is not very intuitive at first.
 
 Now, back to the `sendXXX` stuff.
 - `sendAsync`: send the transaction and return immediately without waiting for any kind of confirmation
-- `sendSync`: send the transaction and wait until it passes preliminary check and be accepted as a _pending transaction_.
-- `sendCommit`: send the transaction and wait until it is included into the blockchain. Note that the transaction might succeed or fail (e.g. the contract method throws an error), but whatever the result is, the transaction was included pernamently into the blockchain.
+- `sendSync`: send the transaction and wait until it passes the preliminary check and be accepted as a _pending transaction_.
+- `sendCommit`: send the transaction and wait until it is included in the blockchain. Note that the transaction might succeed or fail (e.g. the contract method throws an error), but whatever the result is, the transaction was included permanently in the blockchain.
 
 Back to our example, we want to display the new value after each committed change, so we should switch from `sendAsync` to `sendCommit`.
 
@@ -468,11 +468,11 @@ byId('setValue').addEventListener('click', function() {
 
 [EDIT ON CODEPEN](https://codepen.io/thith/pen/jjNzeJ)
 
-It works great. But there's one shortcomming: if Alice updates value, the updated value won't show on Bob's screen. Bob must reload the web page to get the updated value. Is there a way to help Bob? He does not like to reload screen every now and then that much :(
+It works great. But there's one shortcoming: if Alice updates the value, the updated value won't show on Bob's screen. Bob must reload the web page to get the updated value. Is there a way to help Bob? He does not like to reload the screen now and then that much :(
 
 Think about this a little bit...
 
-Yes! Events to the rescue! Remember that our contract emits an event called `ValueSet`, doesn't it? Subscribe to an event is straitforward, look at this.
+Yes! Events to the rescue! Remember that our contract emits an event called `ValueSet`, doesn't it? Subscribe to an event is traightforward, look at this.
 
 ```js
 const filter = {}
