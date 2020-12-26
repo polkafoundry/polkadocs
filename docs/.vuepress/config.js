@@ -1,10 +1,10 @@
 const ogprefix = 'og: http://ogp.me/ns#';
-const title = 'Icetea Introduction';
-const description = 'Introduction about Icetea Platform.';
+const title = 'Icetea Documentation';
+const description = 'Icetea blockchain Platform Documentation';
 
 module.exports = {
-  title: 'Icetea Platform',
-  description: 'Icetea blockchain Platform introduction',
+  title: title,
+  description: description,
   ga: 'UA-8597504-7',
   head: [
     ['meta', { prefix: ogprefix, property: 'og:title', content: title }],

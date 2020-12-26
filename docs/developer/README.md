@@ -92,7 +92,7 @@ The contract now can be built successfully. However, none of its methods is visi
 | @transaction | Indicate that this method updates the contract state. |
 | @view        | This method reads (i.e. _view_) contract state, but it won't update. |
 | @pure        | This method does not access the contract state (neither read nor update). This decorator is often applied to utility functions. |
-| @payable     | Same as @transaction with one addition: user can attach some amount of asset when calling the method. If you don't understand what that means, just ignore it, for now, we'll come back later. |
+| @payable     | Same as @transaction with one addition: user can attach some amount of asset when calling the method. If you don't understand what that means, just ignore it for now, we'll come back later. |
 
 ::: warning NOTE
 __@transaction__ and __@payable__ methods are resource-intensive. Callers must send a transaction to invoke this kind of method. Transactions require consensus on the blockchain network and thus cost some fees. Therefore, never use these decorators if the method does not change state.
@@ -128,7 +128,7 @@ You can also remove `getValue` method and make `value` externally assessible by 
 The only valid state access decorator for fields is `@view`. Therefore, you cannot mark `value` as `@transaction` and remove `setValue` method.
 :::
 
-That's it. Next, we'll deploy it to the Icetea test net for testing.
+That's it. Next, we'll deploy it to the Icetea testnet for testing.
 
 ### Deploy and test
 
@@ -137,7 +137,7 @@ Take a look at the Icetea Studio toolbar.
 <img src='./toolbar.png' style='width:342px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='Icetea Studio Toolbar'>
 
 - __Build__: compile the contract. It will output to `out/mycontract.js` file upon success. _If you change the file content, don't forget to save (Ctrl/Cmd + S) the file before compiling._
-- __Deploy__: deploy the compiled contract to Icetea test net
+- __Deploy__: deploy the compiled contract to Icetea testnet
 - __Build & Deploy__: compile first, then deploy if compiling succeeded
 
 After deployment, you can call the contract's methods using the _Call Contracts_ panel on the right-hand side of the studio.
@@ -315,7 +315,7 @@ class RichMan {
 ```
 
 ::: warning NOTE
-Only trust the value of `msg` if it is a transaction (i.e. it is inside a `@transaction` or `@payable` method). With `@view` and `@pure` methods, a caller can set `msg.sender ` to any value he/she wishes to because there is no need to _sign_ (i.e. attach a digital signature) the message.
+Only trust the value of `msg` if it is a transaction (i.e. it is inside a `@transaction` or `@payable` method). With `@view` and `@pure` methods, a caller can set `msg.sender ` to any value he/she wishes to because there is no need to _sign_ (i.e. attach a digital signature to) the message.
 :::
 
 #### Runtime functions
@@ -416,7 +416,7 @@ const contract = tweb3.contract('teat1d3vmdvpd4mzgreqz4jm8nq2qj8teemuy0xe0gu')
 ```
 
 ::: tip DO I NEED AN ACCOUNT?
-You don't need `createAccount` when calling `@view` and `@pure` methods. The account is required only to sign transactions. In our example, we'll need to call `setValue` which is a `@transaction`, so we need to create one. You can also use `tweb3.importAccount` to import an existing account.
+You don't need to `createAccount` when calling `@view` and `@pure` methods. The account is required only to sign transactions. In our example, we'll need to call `setValue` which is a `@transaction`, so we need to create one. You can also use `tweb3.importAccount` to import an existing account.
 :::
 
 Add a helper function to 'boost productivity' :D
@@ -472,7 +472,7 @@ It works great. But there's one shortcoming: if Alice updates the value, the upd
 
 Think about this a little bit...
 
-Yes! Events to the rescue! Remember that our contract emits an event called `ValueSet`, doesn't it? Subscribe to an event is traightforward, look at this.
+Yes! Events to the rescue! Remember that our contract emits an event called `ValueSet`, doesn't it? Subscribe to an event is straightforward, look at this.
 
 ```js
 const filter = {}

@@ -1,11 +1,11 @@
 # Key Concepts
 
 ## Asset System
-Unlike Ethereum where each token has its own contract, Icetea Platform manages all assets via the asset system contract. Think of it as a registry of all assets. It supports well-known asset types like fungible (similar to Ethereum’s ERC-20) and non-fungible ones (similar to Ethereum’s ERC-712) out of the box. Users can easily issue one by calling a function on the Assets contract, supplying asset parameters and sufficient issuance fees. No source code is needed.
+Unlike Ethereum where each token has its own contract, Icetea Platform manages all assets via the "Assets" system contract. Think of it as a registry of all assets. It supports well-known asset types like fungible (similar to Ethereum’s ERC-20) and non-fungible ones (similar to Ethereum’s ERC-712) out of the box. Users can easily issue one by calling a function on the Assets contract, supplying asset parameters and sufficient issuance fees. No source code is needed.
 
 In rare cases when you want to create a custom asset, you can deploy a smart contract extending the built-in asset with custom behaviors, or create a completely new type of asset.
 
-There is no distinction between a ​coin​ and a ​token​. All are assets and Icetea Platform treats them the same. At the time of the main net launch, Icetea blockchain comes with a pre-issued asset named TEA. This asset is used for gas costs and fees. Future assets can also be used for gas cost and fees, by converting to TEA via the Exchanges system contract.
+There is no distinction between a _coin_ and a _token_. All are assets and Icetea Platform treats them the same. At the time of the mainnet launch, Icetea blockchain comes with a pre-issued asset named TEA. This asset is used for gas costs and fees. Future assets can also be used for gas cost and fees, by converting to TEA via the Exchanges system contract.
 
 Compare to Ethereum token system, this asset system has some advantages.
 - It allows the system to implement "Regular account" feature
@@ -30,11 +30,11 @@ Under the hood, Icetea blockchain uses Google's V8 engine to execute contracts. 
 ### CONTRACT TYPES
 There are 2 types of contracts.
 
-<b>SYSTEM CONTRACTS</b>​ are contracts built into the blockchain. They handle system tasks like asset issuance and transfer, permission management, user-uploaded contract verification, and deployment, etc.
+__SYSTEM CONTRACTS__ are contracts built into the blockchain. They handle system tasks like asset issuance and transfer, permission management, user-uploaded contract verification, and deployment, etc.
 
 Because system contracts are part of the system, they run in-process and in the same context as the system.
 
-<b>USER CONTRACTS</b>​ are contracts that developers upload to the blockchain. Transactional calls to these contracts need to be verified and wrapped, grouped for
+__USER CONTRACTS__ are contracts that developers upload to the blockchain. Transactional calls to these contracts need to be verified and wrapped, grouped for
 possible parallel execution before dispatching to a process pool for execution.
 
 Besides contracts, one can also deploy libraries, which can be called from other libraries or contracts but cannot be called directly from clients. 
@@ -45,17 +45,17 @@ The following diagram denotes what happens when you deploy a smart contract.
 <img src='./architect2.png'>
 <br/>
 <br/>
-<center>Figure 2: Smart contract deployment</center>
+<center><i>Figure 2: Smart contract deployment</i></center>
 
 ### EXECUTION
-After deployment, you can send messages to the smart contract (that is, call the contract’s functions). There are basically 2 types of contract functions: ones that do not change state and ones that do. Calls that change state must be sent as transactions that require consensus on the network and thus cost some gas Calls that do not change state is gas-free and can return instantly.
+After deployment, you can send messages to the smart contract (that is, call the contract’s functions). There are basically 2 types of contract functions: ones that do not change state and ones that do. Calls that change state must be sent as transactions which require consensus on the network and thus cost some gas. Calls that do not change state is gas-free and can return instantly.
 
 The following diagram shows the flow of a contract call that changes state.
 
 <img src='./architect3.png'>
 <br/>
 <br/>
-<center>Figure 3: Smart contract execution</center>
+<center><i>Figure 3: Smart contract execution</i></center>
 
 ### CONTRACT SAFETY
 Contracts submitted by users can contain dangerous code, either unintentionally (bugs) or on purpose (exploits, hacks, vandalizing, etc.). Icetea blockchain performs the following measures.
@@ -75,34 +75,34 @@ Icetea blockchain supports versioning for both contracts and libraries. A versio
 To avoid breaking changes, the client can specify which version of the contract it wants to communicate with (default is the latest version). A contract can also specify which version of the library it wants to load.
 
 ## Light Clients
-Light client support is part of the Tendermint consensus and it works seamlessly with Icetea blockchain. The strong point of Tendermint light clients is that their proofs are very succinct​. ​While a Bitcoin light client must sync chains of block headers and find the one with the most proof of work, a Tendermint light client just needs to keep up with changes to the validator set. This makes it an ideal candidate for mobile and internet-of-things use cases.
+Light client support is part of the Tendermint consensus and it works seamlessly with Icetea blockchain. The strong point of Tendermint light clients is that their proofs are _very succinct_. While a Bitcoin light client must sync chains of block headers and find the one with the most proof of work, a Tendermint light client just needs to keep up with changes to the validator set. This makes it an ideal candidate for mobile and internet-of-things use cases.
 
 ## Cross-chain Communication
-Because Icetea blockchain uses Tendermint Core under the hood, it is trivial to connect Icetea to ​Cosmos Hub​. We would decide how and when to connect to it later.
+Because Icetea blockchain uses Tendermint Core under the hood, it is trivial to connect Icetea to [Cosmos Hub](https://hub.cosmos.network/). We would decide how and when to connect to it later.
 
-Besides Cosmos, for direct cross-communication with other chains like Ethereum, EOS, Tronx, etc., corresponding 2-way bridges must be built. Icetea Blockchain’s smart contract system is capable of building this kind of bridge. Because this is not specific to Icetea blockchain, this paper will not discuss it in detail. Ones who are interested may refer to Kyber Network’s ​Waterloo Bridge​ and other similar solutions for reference and inspiration. The advantage is that, due to the compactness of Tendermint light client proofs, you do not need to sync Icetea block headers to the other chain, just keep track of the changes of its validator set. This makes a 2-way bridge between Icetea and chains like EOS very cost-effective.
+Besides Cosmos, for direct cross-communication with other chains like Ethereum, EOS, Tronx, etc., corresponding 2-way bridges must be built. Icetea Blockchain’s smart contract system is capable of building this kind of bridge. Because this is not specific to Icetea blockchain, this paper will not discuss it in detail. Ones who are interested may refer to Kyber Network’s [Waterloo Bridge](https://blog.kyber.network/waterloo-a-decentralized-practical-bridge-between-eos-and-ethereum-1c230ac65524) and other similar solutions for reference and inspiration. The advantage is that, due to the compactness of Tendermint light client proofs, you do not need to sync Icetea block headers to the other chain, just keep track of the changes of its validator set. This makes a 2-way bridge between Icetea and chains like EOS very cost-effective.
 
 One addition is that it is possible to utilize the Icetea's node gate network to relay information from one chain to others.
 
 ## Governance
-After releasing to the main net and running stably, the governance of Icetea blockchain will be transferred to Icetea Foundation, a non-profit organization.
+After releasing to the mainnet and running stably, the governance of Icetea blockchain will be transferred to Icetea Foundation, a non-profit organization.
 The governance rules of Icetea are designed with the following goals in mind:
 1. Can handle emergency situations
 2. Done on-chain and every stakeholder can vote
 
-During the childhood period (first 12 months from the main net release), everyone can propose but only validators vote. The voting power of a validator is the sum of its own stake and the combined stake others delegate to it. The voting period is short. Part of the validator's deposit is slashed if it does not vote in time.
+During the childhood period (first 12 months from the mainnet release), everyone can propose but only validators vote. The voting power of a validator is the sum of its own stake and the combined stake others delegate to it. The voting period is short. Part of the validator's deposit is slashed if it does not vote in time.
 
 After the childhood period, the blockchain enters a mature one. The voting period takes longer. Everyone can explicitly vote or delegate its stake to a validator. Changes to the blockchain are requested in the form of proposals. People must deposit a sufficient amount to back the proposal before it becomes eligible for voting.
 
 There are 3 types of proposals:
-1. Blockchain Parameter Changes​. This includes block size, block time, number of validators, ratios of transaction fees awarded to validators, whitelisted libraries, etc. Some parameters require only validators to vote (e.g. blacklist a smart contract) while others open to all stakeholders (e.g. change compensation ratio). These parameters can be changed automatically after the proposal passes (i.e. this type of proposal does not require a software update)
-2. Emergency State Declaration​: put blockchain back to childhood state for a specified period of time. This is a special type of Blockchain Parameter Changes.
+1. **Blockchain Parameter Changes** This includes block size, block time, number of validators, ratios of transaction fees awarded to validators, whitelisted libraries, etc. Some parameters require only validators to vote (e.g. blacklist a smart contract) while others open to all stakeholders (e.g. change compensation ratio). These parameters can be changed automatically after the proposal passes (i.e. this type of proposal does not require a software update)
+2. **Emergency State Declaration:** put blockchain back to childhood state for a specified period of time. This is a special type of Blockchain Parameter Changes.
 The blockchain also supports a mechanism so that it can enter Emergency State automatically without the need of passing a proposal when certain vital indicators enter the dangerous zone. However, the list of indicators is not yet determined in phase 1.
-3. Advanced Changes​: this includes both software updates and updates to the governance model itself. This type of proposal cannot be automated and must be presented in the form of an improvement proposal paper. People can get their proposal-backing deposit back after the proposal passes, or it does not enter the voting period.
+3. **Advanced Changes:** this includes both software updates and updates to the governance model itself. This type of proposal cannot be automated and must be presented in the form of an improvement proposal paper. People can get their proposal-backing deposit back after the proposal passes, or it does not enter the voting period.
 
 ## Migration from Ethereum 
 ### ASSET MIGRATION
-ETH or tokens on Ethereum could be moved to Icetea blockchain using a bridge as described in the ​Cross-chain Communication​ section. The bridge could be 1-way (Ethereum to Icetea only) or 2 ways, depending on your specific use case.
+ETH or tokens on Ethereum could be moved to Icetea blockchain using a bridge as described in the _Cross-chain Communication_ section. The bridge could be 1-way (Ethereum to Icetea only) or 2 ways, depending on your specific use case.
 
 ### CONTRACT MIGRATION
-Because there are Abstract Syntax Tree (AST) parsers for both Solidity and JavaScript, it is possible to write a Solidity to Javascript transpiler. The ​Sunseed​ tool supports Decorated JS​, a JavaScript class structure similar to Solidity contract, so it is easier to transpile Solidity to it. A sample tool for this could be found at https://github.com/TradaTech/solidity2js​
+Because there are Abstract Syntax Tree (AST) parsers for both Solidity and JavaScript, it is possible to write a Solidity to Javascript transpiler. The _Sunseed_ tool supports _Decorated JS_, a JavaScript class structure similar to Solidity contract, so it is easier to transpile Solidity to it. A sample tool for this could be found at https://github.com/TradaTech/solidity2js
