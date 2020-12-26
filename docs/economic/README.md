@@ -33,6 +33,7 @@ __Total Supply:__ 200,000,000 TEA
 - __Total Fund Raised:__ 3,120,000 USDT (estimated)
 
 #### Note:
+- The rate of Seed round is set to be 1 ETH for 20,000 TEA. The rate in USDT is approximate.
 - The numbers for Private Sale and Public Sales are planned numbers and might change slightly depending on market and business conditions. However, the total number of token for swap for these 2 rounds are determined 19% of total supply
 
 ### Usage of Fund Raised
