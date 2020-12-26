@@ -53,3 +53,21 @@ __Total Supply:__ 200,000,000 TEA
 ![Circulating Suply](./circulating.svg)
 
 **Note** _Team_ in the charts includes Team & Advisors.
+
+## Validator Tokenomics
+
+To attract dapp developers and users, Icetea's transaction fees are cheap, just enough to prevent spamming. Therefore, to ensure validators profitable, most of validators' rewards should come from other sources.
+
+Icetea blockchain reserves 12% of total supply for Validator Reward Fund (VR Fund). That is 24M TEA.
+
+The initial VR Fund will be used up after 5 years. In the first 3 years, the entire validator rewards come from this fund. From year 4 onward, Icetea platform starts to mint TEA gradually to compensate validators.
+
+| Year | No of<br>Validators | Monthly<br>VR Fund | Monthly<br>Mint | Monthly<br>Reward/Validator |
+|------|------------|-----|------|-------|
+| 1 ~ 3| 30 | 480,000 | 0 | 16,000 |
+| 4 ~ 5| 50 |  280,000 | 520,000 | 16,000 |
+| 6 onward | 100 | 0 | 1,600,000 | 16,000 |
+
+At the token price of Public Sale, validator earns 1920 USDT monthly. If the TEA price increases, validator rewards will be more attractive and more people will nominate to be validator candidates, thus make the system more secure.
+
+All the validator tokenomics parameters are subject to Icetea blockchain governance process. As a result, Icetea blockchain can alter itself to adapt to changing economic environment.
