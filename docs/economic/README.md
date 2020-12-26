@@ -68,6 +68,6 @@ The initial VR Fund will be used up after 5 years. In the first 3 years, the ent
 | 4 ~ 5| 50 |  280,000 | 520,000 | 16,000 TEA |
 | 6 onward | 100 | 0 | 1,600,000 | 16,000 TEA |
 
-At the token price of Public Sale, validator earns 1920 USDT monthly. If the TEA price increases, validator rewards will be more attractive and more people will nominate to be validator candidates, thus make the system more secure.
+At the token price of Public Sale, each validator earns 1920 USDT monthly. If the TEA price increases, validator rewards will be more attractive and more people will nominate to be validator candidates, thus make the system more secure.
 
 All the validator tokenomics parameters (including the number of validators) are subject to Icetea blockchain governance process. As a result, Icetea blockchain can alter itself to adapt to changing economic environment.
