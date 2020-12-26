@@ -26,8 +26,8 @@ __Total Supply:__ 200,000,000 TEA
 | Round | Amount<br>(TEA) | Rate<br>(USDT) | Raise<br>(USDT) | Start<br>(2021) | End<br>(2021) | Diluted<br>MCap<br> |
 |-------|--------|------|-------|-------|-----|----|
 | Seed | 8M (4%) | 0.03 | 240K | Jan 1 | Jan 11 | 6M USDT |
-| Private | 28M (14%) | ~0.045 | 1.26M | Jan 15 | - | 9M USDT |
-| Public | 10M (5%) | 0.06 | 600K | Feb or Mar | - | 12M USDT |
+| Private | 28M (14%) | 0.06 | 1.68M | Jan 15 | - | 12M USDT |
+| Public | 10M (5%) | 0.12 | 1.2M | Feb or Mar | - | 24M USDT |
 
 - __Total Token For Sales__: 46,000,000 TEA (23% of Total Supply)
 - __Total Fund Raised:__ 2,100,000 USDT (estimated)
