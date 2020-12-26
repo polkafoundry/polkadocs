@@ -13,6 +13,7 @@ module.exports = {
     ['meta', { prefix: ogprefix, property: 'og:image', content: 'https://docs.icetea.io/img/share.png' }],
     ['link', { rel: 'icon', href: 'https://icetea.io/images/favicon.png' }],
   ],
+  theme: "book",
   themeConfig: {
     logo: 'https://trada.tech/assets/img/logo.svg',
     nav: [
@@ -22,7 +23,7 @@ module.exports = {
     ],
     sidebar: [
       {
-        title: 'Introduction',
+        title: '🎯 Introduction',
         collapsable: false,
         sidebarDepth: 1,
         children: [
@@ -35,7 +36,7 @@ module.exports = {
         ]
       },
       {
-        title: 'Developer Guide',
+        title: '🧑🏻‍💻 Developer Guide',
         collapsable: false,
         sidebarDepth: 1,
         children: [

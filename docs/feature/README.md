@@ -111,7 +111,7 @@ Developing blockchain apps on Icetea is almost as easy as regular apps: reuse of
 Icetea Studio and other development tools let developers write and test smart contracts easily in either JavaScript or Rust, and integrate seamlessly with existing development workflows.
 
 ### Reusing Existing Libraries
-No need to reinvent the wheel, developers can reuse existing NodeJS packages, including lodash and @hapi/joi, for their Icetea blockchain apps.
+No need to reinvent the wheel, developers can reuse existing NodeJS packages, including `lodash` and `@hapi/joi`, for their Icetea blockchain apps.
 
 ### Enhanced Debugging
 Debugging is just a breeze on Icetea which supports advanced debugging techniques like setting breakpoints, stepping, watching variables, and performance profiling.
