@@ -30,11 +30,10 @@ __Total Supply:__ 200,000,000 TEA
 | Public | 10M (5%) | 0.12 | 1.2M | Feb or Mar | - | 24M USDT |
 
 - __Total Token For Sales__: 46,000,000 TEA (23% of Total Supply)
-- __Total Fund Raised:__ 2,100,000 USDT (estimated)
+- __Total Fund Raised:__ 3,120,000 USDT (estimated)
 
 #### Note:
 - The numbers for Private Sale and Public Sales are planned numbers and might change slightly depending on market and business conditions. However, the total number of token for swap for these 2 rounds are determined 19% of total supply
-- For Private Sale, the rate depends on strategic partners, negotiable but cannot be less than 0.04 USDT/token
 
 ### Usage of Fund Raised
 
