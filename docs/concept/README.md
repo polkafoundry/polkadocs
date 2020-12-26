@@ -42,7 +42,7 @@ Besides contracts, one can also deploy libraries, which can be called from other
 ### DEPLOYMENT
 The following diagram denotes what happens when you deploy a smart contract.
 
-<img src='./architect2.png'>
+![Smart contract deployment](./architect2.png)
 <br/>
 <br/>
 <center><i>Figure 2: Smart contract deployment</i></center>
@@ -52,7 +52,7 @@ After deployment, you can send messages to the smart contract (that is, call the
 
 The following diagram shows the flow of a contract call that changes state.
 
-<img src='./architect3.png'>
+![Smart contract execution](./architect3.png)
 <br/>
 <br/>
 <center><i>Figure 3: Smart contract execution</i></center>

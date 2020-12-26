@@ -1,30 +1,55 @@
 # Token Economics
 
-## Sale
+## Token Information
 
-<font size = "3.5"><b>Max Supply:</b></font> <font size = "4.5"> 200,000,000 TEA </font>
+- Token Name: __TEA token__
+- Token Symbol: __TEA__
+- Total Supply: __200,000,000__
 
-| Sale Type | Dedicated Token | Price | Collecting | Release Date | Duration |
-|-----------|-----------------|-------|------------|--------------|----------|
-| Seed Sale | 6M TEA | US$0.03 | US$180,000 | Dec 19th | 30 days |
-| Private Sale | 10M TEA | US$0.04(~) | US$400,000 | Jan 18th | 30 days |
-| Public Sale | 30M TEA | US$0.06 | US$1.5M | Feb or Mar | 30 days |
+_TEA token_ is an Ethereum's __ERC-20__ token. In the future, when Icetea blockchain launches the mainnet, TEA token holders can swap ERC-20 TEA token for _native_ TEA coin at the rate of 1 for 1.
 
-<i>Note:</i> For Private Sale,  the price depends on strategic partners, negotiable but can’t be less than US$0.04/token. The collection is US$400,000 estimated.
+## Token Utility
 
-### Total Tokens Sale
-<font size = "4"> 46,000,000 TEA </font>
+- Payment for transaction fees (computation & storage)
+- Staking for validators to earn share of block rewards
+- Staking to participate in the chain's governance process and earn rewards for voting on proposals
+- Payment for Icetea Platform & partners' services (Icetea ID, DocuGuard, etc.)
 
-### Total Fund Raise
-<font size = "4"> US$2,080,000 </font>
+## Token Allocation
 
-<br />
-<center><img src='./tokendist.png' style='width:700px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)'></center>
+![Token Allocation](./alloc.svg)
 
-<center>Figure 4: Icetea token distrubution</center>
-<br />
-<br />
+## Token Sales
+### Sale Rounds
+__Total Supply:__ 200,000,000 TEA
 
-<center><img src='./fundallo.png' style='width:700px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)'></center>
+| Round | Amount<br>(TEA) | Rate<br>(USDT) | Raise<br>(USDT) | Start<br>(2021) | End<br>(2021) | Diluted<br>MCap<br> |
+|-------|--------|------|-------|-------|-----|----|
+| Seed | 8M (4%) | 0.03 | 240K | Jan 1 | Jan 11 | 6M USDT |
+| Private | 28M (14%) | ~0.045 | 1.26M | Jan 15 | - | 9M USDT |
+| Public | 10M (5%) | 0.06 | 600K | Feb or Mar | - | 12M USDT |
 
-<center>Figure 5: Icetea fund allocation</center>
+- __Total Token For Sales__: 46,000,000 TEA (23% of Total Supply)
+- __Total Fund Raised:__ 2,100,000 USDT (estimated)
+
+#### Note:
+- The numbers for Private Sale and Public Sales are planned numbers and might change slightly depending on market and business conditions. However, the total number of token for swap for these 2 rounds are determined 19% of total supply
+- For Private Sale, the rate depends on strategic partners, negotiable but cannot be less than 0.04 USDT/token
+
+### Usage of Fund Raised
+
+![Usage of Fund](./fund.svg)
+
+## Token Release Schedule
+
+### Release Summary
+- Seed & Private: 40% at 90 days after swap day, then 20% after each 90-day period
+- Public: Release all at listing event
+- Team & Advisors: 25% each 6-month period
+- Validators: 1.5% each month since mainnet launches
+- Ecosystem: 2% each month
+
+### Circulating Supply by Month
+![Circulating Suply](./circulating.svg)
+
+**Note** _Team_ in the charts includes Team & Advisors.

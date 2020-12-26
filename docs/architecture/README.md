@@ -2,8 +2,7 @@
 
 To understand how Icetea Platform resolves the blockchain's challenges, first, we need to take a look at its system architecture.
 
-<img src='./architect.png'>
-
+![Icetea Architecture](./architect.png)
 
 <center><i>Figure 1: Icetea platform architecture</i></center>
 
