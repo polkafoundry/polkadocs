@@ -5,7 +5,7 @@ To understand how Icetea Platform resolves the blockchain's challenges, first, w
 <img src='./architect.png'>
 
 
-<center>Figure 1: Icetea platform architecture</center>
+<center><i>Figure 1: Icetea platform architecture</i></center>
 
 
 Icetea blockchain is an account-based (as opposed to UTXO) blockchain. Every transaction is a contract call. For example, to issue or transfer an asset, one calls the "issue' or "transfer' function, respectively, of the "Assets" system contract. To deploy a smart contract one calls the "deploy" function of "ContractDeployer" system contract, supplying the contract’s bytes. This way, the blockchain core can handle all transactions the same way, avoiding the maintenance overhead of the approach of using transaction types.

@@ -11,7 +11,7 @@ module.exports = {
     ['meta', { prefix: ogprefix, property: 'og:description', content: description }],
     ['meta', { prefix: ogprefix, property: 'twitter:title', content: title }],
     ['meta', { prefix: ogprefix, property: 'og:image', content: 'https://docs.icetea.io/img/share.png' }],
-    ['link', { rel: 'icon', href: 'https://icetea.io/favicon.ico' }],
+    ['link', { rel: 'icon', href: 'https://icetea.io/images/favicon.png' }],
   ],
   themeConfig: {
     logo: 'https://trada.tech/assets/img/logo.svg',
@@ -35,14 +35,14 @@ module.exports = {
         ]
       },
       {
-        title: 'Developers',
+        title: 'Developer Guide',
         collapsable: false,
         sidebarDepth: 1,
         children: [
         '/developer/'
         ]
       },
-      '/faq/',
+  //    '/faq/',
   /*    {
         title: 'Validator',
         collapsable: false,

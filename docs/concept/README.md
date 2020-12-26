@@ -105,4 +105,4 @@ The blockchain also supports a mechanism so that it can enter Emergency State au
 ETH or tokens on Ethereum could be moved to Icetea blockchain using a bridge as described in the _Cross-chain Communication_ section. The bridge could be 1-way (Ethereum to Icetea only) or 2 ways, depending on your specific use case.
 
 ### CONTRACT MIGRATION
-Because there are Abstract Syntax Tree (AST) parsers for both Solidity and JavaScript, it is possible to write a Solidity to Javascript transpiler. The _Sunseed_ tool supports _Decorated JS_, a JavaScript class structure similar to Solidity contract, so it is easier to transpile Solidity to it. A sample tool for this could be found at https://github.com/TradaTech/solidity2js
+Because there are Abstract Syntax Tree (AST) parsers for both Solidity and JavaScript, it is possible to write a Solidity to Javascript transpiler. The _Sunseed_ tool supports _Decorated JS_, a JavaScript class structure similar to Solidity contract, so it is easier to transpile Solidity to it. A sample tool for this could be found at [https://github.com/TradaTech/solidity2js](https://github.com/TradaTech/solidity2js).
