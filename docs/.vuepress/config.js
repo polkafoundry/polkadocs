@@ -42,7 +42,7 @@ module.exports = {
         '/developer/'
         ]
       },
-      '/FAQ/',
+      '/faq/',
   /*    {
         title: 'Validator',
         collapsable: false,
