@@ -65,9 +65,9 @@ The VR Fund will be used up after 5 years. In the first 3 years, the entire vali
 | Year | No. of<br>Validators | Monthly<br>VR Fund | Monthly<br>Mint | Monthly<br>Reward/Validator |
 |------|------------|-----|------|-------|
 | 1 ~ 3| 30 | 480,000 | 0 | 16,000 TEA |
-| 4 ~ 5| 50 |  280,000 | 520,000 | 16,000 TEA |
-| 6 onward | 100 | 0 | 1,600,000 | 16,000 TEA |
+| 4 ~ 5| 50 |  280,000 | 370,000 | 13,000 TEA |
+| 6 onward | 100 | 0 | 1,000,000 | 10,000 TEA |
 
-At the token price of Public Sale, each validator earns 1920 USDT monthly. If the TEA price increases, validator rewards will be more attractive and more people will nominate to be validator candidates, thus make the system more secure.
+In the first 3 years, each validator earns 16,000 TEA as _monthly_ revenue. At the TEA price of Public Sale, that is worth 1920 USDT. Monthly validator revenue in TEA decreases in later periods. However, as we expect TEA price to increase in the long run, the monthly validator revenue in USDT should improve.
 
 All of the validator economics parameters (including the number of validators) are subject to Icetea blockchain governance process. As a result, Icetea blockchain can alter itself to adapt to the changing economic environment.
