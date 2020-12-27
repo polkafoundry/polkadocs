@@ -10,7 +10,7 @@ module.exports = {
     ['meta', { prefix: ogprefix, property: 'og:title', content: title }],
     ['meta', { prefix: ogprefix, property: 'og:description', content: description }],
     ['meta', { prefix: ogprefix, property: 'twitter:title', content: title }],
-    ['meta', { prefix: ogprefix, property: 'og:image', content: 'https://docs.icetea.io/img/share.png' }],
+    ['meta', { prefix: ogprefix, property: 'og:image', content: 'https://icetea.io/images/share/home.png' }],
     ['link', { rel: 'icon', href: 'https://icetea.io/images/favicon.png' }],
   ],
   theme: "book",
