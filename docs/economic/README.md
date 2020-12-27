@@ -46,7 +46,7 @@ __Total Supply:__ 200,000,000 TEA
 - Seed & Private: 40% at 90 days after swap day, then 20% after each 90-day period
 - Public: Release all at listing event
 - Team & Advisors: 25% each 6-month period
-- Validators: 2% each month since mainnet launches. Refer to [Validator Tokenomics](#validator-tokenomics) section for more details.
+- Validators: 2% each month since mainnet launches. Refer to [Validator Tokenomics](#validator-economics) section for more details.
 - Ecosystem: 2.5% each month
 
 ### Circulating Supply by Month
