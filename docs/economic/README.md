@@ -43,9 +43,9 @@ __Total Supply:__ 200,000,000 TEA
 ## Token Release Schedule
 
 ### Release Summary
-- Seed & Private: 40% at 90 days after swap day, then 20% after each 90-day period
+- Seed & Private: 40% at 90 days after swap day, then 20% each 90-day period over 3 periods
 - Public: Release all at listing event
-- Team & Advisors: 25% each 6-month period
+- Team & Advisors: 25% each 6-month period over 4 periods
 - Validators: 2% each month since mainnet launches. Refer to [Validator Tokenomics](#validator-economics) section for more details.
 - Ecosystem: 2.5% each month
 
@@ -68,6 +68,6 @@ The VR Fund will be used up after 5 years. In the first 3 years, the entire vali
 | 4 ~ 5| 50 |  280,000 | 370,000 | 13,000 TEA |
 | 6 onward | 100 | 0 | 1,000,000 | 10,000 TEA |
 
-In the first 3 years, each validator earns 16,000 TEA as _monthly_ revenue. At the TEA price of Public Sale, that is worth 1920 USDT. Monthly validator revenue in TEA decreases in later periods. However, as we expect TEA price to increase in the long run, the monthly validator revenue in USDT should improve.
+In the first 3 years, each validator earns 16,000 TEA as _monthly_ reward. At the TEA price of Public Sale, that is worth 1920 USDT. Monthly validator reward in TEA decreases in later periods. However, as we expect TEA price to increase in the long run, the monthly validator revenue converted to USDT should improve.
 
 All of the validator economics parameters (including the number of validators) are subject to Icetea blockchain governance process. As a result, Icetea blockchain can alter itself to adapt to the changing economic environment.
