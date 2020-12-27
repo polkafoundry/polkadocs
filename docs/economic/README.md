@@ -25,7 +25,7 @@ __Total Supply:__ 200,000,000 TEA
 
 | Round | Amount<br>(TEA) | Rate<br>(USDT) | Raise<br>(USDT) | Start<br>(2021) | End<br>(2021) | Diluted<br>MCap<br> |
 |-------|--------|------|-------|-------|-----|----|
-| Seed | 8M (4%) | 0.03 | 240K | Jan 1 | Jan 11 | 6M USDT |
+| Seed | 8M (4%) | 0.03 | 240K | Jan 4 | Jan 11 | 6M USDT |
 | Private | 28M (14%) | 0.06 | 1.68M | Jan 15 | - | 12M USDT |
 | Public | 10M (5%) | 0.12 | 1.2M | Feb or Mar | - | 24M USDT |
 
@@ -60,9 +60,9 @@ To attract dapp developers and users, Icetea's transaction fees are cheap, just 
 
 Icetea blockchain reserves 12% of total supply for Validator Reward Fund (VR Fund). That is 24M TEA.
 
-The initial VR Fund will be used up after 5 years. In the first 3 years, the entire validator rewards come from this fund. From year 4 onward, Icetea platform starts to mint TEA gradually to compensate the validators.
+The VR Fund will be used up after 5 years. In the first 3 years, the entire validator rewards come from this fund. From year 4 onward, Icetea platform starts to mint TEA gradually to compensate the validators.
 
-| Year | No of<br>Validators | Monthly<br>VR Fund | Monthly<br>Mint | Monthly<br>Reward/Validator |
+| Year | No. of<br>Validators | Monthly<br>VR Fund | Monthly<br>Mint | Monthly<br>Reward/Validator |
 |------|------------|-----|------|-------|
 | 1 ~ 3| 30 | 480,000 | 0 | 16,000 TEA |
 | 4 ~ 5| 50 |  280,000 | 520,000 | 16,000 TEA |

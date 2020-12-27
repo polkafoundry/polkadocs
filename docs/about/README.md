@@ -24,7 +24,7 @@ The final, long-term goal is to offer a viable alternative platform comparable t
 
 #### The blockchain landscape and roadblocks
 
-The blockchain’s chaotic gold rush will be over soon. When the dust settles, only the ones who solve real-world problems and bring value to people will survive and prosper. However, blockchain applications nowadays still put heavy burdens on users. Indeed, while the benefits blockchain promises are abstract and ambiguous, the friction it introduce is concrete and immediate.
+The blockchain’s chaotic gold rush will be over soon. When the dust settles, only the ones who solve real-world problems and bring value to people will survive and prosper. However, blockchain applications nowadays still put heavy burdens on users. Indeed, while the benefits blockchain promises are abstract and ambiguous, the friction it introduces is very concrete and immediate.
 
 #### Icetea’s distinctive and practical approach
 
