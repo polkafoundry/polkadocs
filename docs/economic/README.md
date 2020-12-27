@@ -47,7 +47,6 @@ __Total Supply:__ 200,000,000 TEA
 - Public: Release all at listing event
 - Team & Advisors: 25% each 6-month period over 4 periods
 - Validators: 2% each month since mainnet launches. Refer to [Validator Tokenomics](#validator-economics) section for more details.
-- Ecosystem: 2.5% each month
 
 ### Circulating Supply by Month
 ![Circulating Suply](./circulating.svg)
