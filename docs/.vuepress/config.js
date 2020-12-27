@@ -17,8 +17,8 @@ module.exports = {
   themeConfig: {
     logo: 'https://trada.tech/assets/img/logo.svg',
     nav: [
-      { text: 'Home', link: '/about/' },
-      { text: 'Developers', link: '/developer/' },
+      { text: 'Introduction', link: '/about/' },
+      { text: 'Developer Guide', link: '/developer/' },
       { text: 'Icetea', link: 'https://icetea.io' },
     ],
     sidebar: [
