@@ -9,4 +9,4 @@
 ### Q3 - 2021
 - Launch Icetea public mainnet
 ### Q4 - 2021
-- Launch EasyStore, and AirBnB-style on-demand warehousing service.
+- Launch EasyStore, an AirBnB-style on-demand warehousing service.
