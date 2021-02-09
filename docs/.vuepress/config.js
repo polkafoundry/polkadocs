@@ -1,6 +1,6 @@
 const ogprefix = 'og: http://ogp.me/ns#';
-const title = 'Icetea Documentation';
-const description = 'Icetea blockchain Platform Documentation';
+const title = 'PolkaFoundry Documentation';
+const description = 'PolkaFoundry blockchain Platform Documentation';
 
 module.exports = {
   title: title,
@@ -10,16 +10,16 @@ module.exports = {
     ['meta', { prefix: ogprefix, property: 'og:title', content: title }],
     ['meta', { prefix: ogprefix, property: 'og:description', content: description }],
     ['meta', { prefix: ogprefix, property: 'twitter:title', content: title }],
-    ['meta', { prefix: ogprefix, property: 'og:image', content: 'https://icetea.io/images/share/home.png' }],
-    ['link', { rel: 'icon', href: 'https://icetea.io/images/favicon.png' }],
+    ['meta', { prefix: ogprefix, property: 'og:image', content: 'https://polkafoundry.com/images/share/home.png' }],
+    ['link', { rel: 'icon', href: 'https://scan.polkafoundry.com/favicon.svg' }],
   ],
   theme: "book",
   themeConfig: {
-    logo: 'https://trada.tech/assets/img/logo.svg',
+    logo: 'https://scan.polkafoundry.com/favicon.svg',
     nav: [
       { text: 'Introduction', link: '/about/' },
       { text: 'Developer Guide', link: '/developer/' },
-      { text: 'Icetea', link: 'https://icetea.io' },
+      { text: 'PolkaFoundry', link: 'https://polkafoundry.com' },
     ],
     sidebar: [
       {

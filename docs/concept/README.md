@@ -1,11 +1,11 @@
 # Key Concepts
 
 ## Asset System
-Unlike Ethereum where each token has its own contract, Icetea Platform manages all assets via the "Assets" system contract. Think of it as a registry of all assets. It supports well-known asset types like fungible (similar to Ethereum’s ERC-20) and non-fungible ones (similar to Ethereum’s ERC-712) out of the box. Users can easily issue one by calling a function on the Assets contract, supplying asset parameters and sufficient issuance fees. No source code is needed.
+Unlike Ethereum where each token has its own contract, PolkaFoundry manages all assets via the "Assets" system contract. Think of it as a registry of all assets. It supports well-known asset types like fungible (similar to Ethereum’s ERC-20) and non-fungible ones (similar to Ethereum’s ERC-712) out of the box. Users can easily issue one by calling a function on the Assets contract, supplying asset parameters and sufficient issuance fees. No source code is needed.
 
 In rare cases when you want to create a custom asset, you can deploy a smart contract extending the built-in asset with custom behaviors, or create a completely new type of asset.
 
-There is no distinction between a _coin_ and a _token_. All are assets and Icetea Platform treats them the same. At the time of the mainnet launch, Icetea blockchain comes with a pre-issued asset named TEA. This asset is used for gas costs and fees. Future assets can also be used for gas cost and fees, by converting to TEA via the Exchanges system contract.
+There is no distinction between a _coin_ and a _token_. All are assets and PolkaFoundry treats them the same. At the time of the mainnet launch, PolkaFoundry blockchain comes with a pre-issued asset named PKF. This asset is used for gas costs and fees. Future assets can also be used for gas cost and fees, by converting to PKF via the Exchanges system contract.
 
 Compare to Ethereum token system, this asset system has some advantages.
 - It allows the system to implement "Regular account" feature
@@ -20,12 +20,12 @@ Although it is possible for developers to create a token using a contract simila
 ## Smart Contracts 
 ### FORMAT AND EXECUTION ENGINE
 
-Smart contracts, or contracts for short, are at the heart of Icetea blockchain. Every transaction is a contract call.
+Smart contracts, or contracts for short, are at the heart of PolkaFoundry blockchain. Every transaction is a contract call.
 
-Icetea blockchain supports 2 contract format: JavaScript and WebAssembly. Other languages can be compiled into either JavaScript or WebAssembly before deploying to
+PolkaFoundry blockchain supports 2 contract format: JavaScript and WebAssembly. Other languages can be compiled into either JavaScript or WebAssembly before deploying to
 the blockchain.
 
-Under the hood, Icetea blockchain uses Google's V8 engine to execute contracts. V8 is currently the most powerful, advanced, and mature engine for both JavaScript and WebAssembly.
+Under the hood, PolkaFoundry blockchain uses Google's V8 engine to execute contracts. V8 is currently the most powerful, advanced, and mature engine for both JavaScript and WebAssembly.
 
 ### CONTRACT TYPES
 There are 2 types of contracts.
@@ -58,7 +58,7 @@ The following diagram shows the flow of a contract call that changes state.
 <center><i>Figure 3: Smart contract execution</i></center>
 
 ### CONTRACT SAFETY
-Contracts submitted by users can contain dangerous code, either unintentionally (bugs) or on purpose (exploits, hacks, vandalizing, etc.). Icetea blockchain performs the following measures.
+Contracts submitted by users can contain dangerous code, either unintentionally (bugs) or on purpose (exploits, hacks, vandalizing, etc.). PolkaFoundry blockchain performs the following measures.
 - Gas-based strategy to limit the amount of resources a contract call can use. For more details about gas calculation, please refer to the Transaction Fees section
 - Scan for unsafe code: at deployment, the contract is scanned for unsafe code. This includes code that attempts to escape the execution sandbox and code that
 is deemed un-polyfillably indeterministic
@@ -70,23 +70,23 @@ is deemed un-polyfillably indeterministic
 It should be noted that the blockchain cannot detect contracts that attempt to scam users. Users should interact with verified and audited dApps only.
 
 ### VERSIONING
-Icetea blockchain supports versioning for both contracts and libraries. A version is an integer number, starting from zero. One can deploy an update contract or library to the same address. This will increase the version by one.
+PolkaFoundry blockchain supports versioning for both contracts and libraries. A version is an integer number, starting from zero. One can deploy an update contract or library to the same address. This will increase the version by one.
 
 To avoid breaking changes, the client can specify which version of the contract it wants to communicate with (default is the latest version). A contract can also specify which version of the library it wants to load.
 
 ## Light Clients
-Light client support is part of the Tendermint consensus and it works seamlessly with Icetea blockchain. The strong point of Tendermint light clients is that their proofs are _very succinct_. While a Bitcoin light client must sync chains of block headers and find the one with the most proof of work, a Tendermint light client just needs to keep up with changes to the validator set. This makes it an ideal candidate for mobile and internet-of-things use cases.
+Light client support is part of the Tendermint consensus and it works seamlessly with PolkaFoundry blockchain. The strong point of Tendermint light clients is that their proofs are _very succinct_. While a Bitcoin light client must sync chains of block headers and find the one with the most proof of work, a Tendermint light client just needs to keep up with changes to the validator set. This makes it an ideal candidate for mobile and internet-of-things use cases.
 
 ## Cross-chain Communication
-Because Icetea blockchain uses Tendermint Core under the hood, it is trivial to connect Icetea to [Cosmos Hub](https://hub.cosmos.network/). We would decide how and when to connect to it later.
+Because PolkaFoundry blockchain uses Tendermint Core under the hood, it is trivial to connect PolkaFoundry to [Cosmos Hub](https://hub.cosmos.network/). We would decide how and when to connect to it later.
 
-Besides Cosmos, for direct cross-communication with other chains like Ethereum, EOS, Tronx, etc., corresponding 2-way bridges must be built. Icetea Blockchain’s smart contract system is capable of building this kind of bridge. Because this is not specific to Icetea blockchain, this paper will not discuss it in detail. Ones who are interested may refer to Kyber Network’s [Waterloo Bridge](https://blog.kyber.network/waterloo-a-decentralized-practical-bridge-between-eos-and-ethereum-1c230ac65524) and other similar solutions for reference and inspiration. The advantage is that, due to the compactness of Tendermint light client proofs, you do not need to sync Icetea block headers to the other chain, just keep track of the changes of its validator set. This makes a 2-way bridge between Icetea and chains like EOS very cost-effective.
+Besides Cosmos, for direct cross-communication with other chains like Ethereum, EOS, Tronx, etc., corresponding 2-way bridges must be built. PolkaFoundry Blockchain’s smart contract system is capable of building this kind of bridge. Because this is not specific to PolkaFoundry blockchain, this paper will not discuss it in detail. Ones who are interested may refer to Kyber Network’s [Waterloo Bridge](https://blog.kyber.network/waterloo-a-decentralized-practical-bridge-between-eos-and-ethereum-1c230ac65524) and other similar solutions for reference and inspiration. The advantage is that, due to the compactness of Tendermint light client proofs, you do not need to sync PolkaFoundry block headers to the other chain, just keep track of the changes of its validator set. This makes a 2-way bridge between PolkaFoundry and chains like EOS very cost-effective.
 
-One addition is that it is possible to utilize the Icetea's node gate network to relay information from one chain to others.
+One addition is that it is possible to utilize the PolkaFoundry's node gate network to relay information from one chain to others.
 
 ## Governance
-After releasing to the mainnet and running stably, the governance of Icetea blockchain will be transferred to Icetea Foundation, a non-profit organization.
-The governance rules of Icetea are designed with the following goals in mind:
+After releasing to the mainnet and running stably, the governance of PolkaFoundry blockchain will be transferred to PolkaFoundry Foundation, a non-profit organization.
+The governance rules of PolkaFoundry are designed with the following goals in mind:
 1. Can handle emergency situations
 2. Done on-chain and every stakeholder can vote
 
@@ -102,7 +102,7 @@ The blockchain also supports a mechanism so that it can enter Emergency State au
 
 ## Migration from Ethereum 
 ### ASSET MIGRATION
-ETH or tokens on Ethereum could be moved to Icetea blockchain using a bridge as described in the _Cross-chain Communication_ section. The bridge could be 1-way (Ethereum to Icetea only) or 2 ways, depending on your specific use case.
+ETH or tokens on Ethereum could be moved to PolkaFoundry blockchain using a bridge as described in the _Cross-chain Communication_ section. The bridge could be 1-way (Ethereum to PolkaFoundry only) or 2 ways, depending on your specific use case.
 
 ### CONTRACT MIGRATION
 Because there are Abstract Syntax Tree (AST) parsers for both Solidity and JavaScript, it is possible to write a Solidity to Javascript transpiler. The _Sunseed_ tool supports _Decorated JS_, a JavaScript class structure similar to Solidity contract, so it is easier to transpile Solidity to it. A sample tool for this could be found at [https://github.com/TradaTech/solidity2js](https://github.com/TradaTech/solidity2js).

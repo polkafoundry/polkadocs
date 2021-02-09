@@ -1,6 +1,6 @@
 # Getting Started
 
-This guide's purpose is to get you started with Icetea blockchain programming. After 30 minutes, you'll know:
+This guide's purpose is to get you started with PolkaFoundry blockchain programming. After 30 minutes, you'll know:
 
 - How to author a simple smart contract
 - How to build, deploy, and interact with smart contracts
@@ -16,7 +16,7 @@ This guide's purpose is to get you started with Icetea blockchain programming. A
 
 We will use some available online tools.
 
-1. [Icetea Studio (https://studio.icetea.io)](https://studio.icetea.io)
+1. [PolkaFoundry Studio (https://studio.polkafoundry.com)](https://studio.polkafoundry.com)
 2. [CodePen (https://codepen.io)](https://codepen.io)
 
 Later, when developing more complex dApps, more advanced tools will be introduced.
@@ -37,7 +37,7 @@ We will also make a simple web page to let users interact with the contract.
 
 ### Start with an empty contract
 
-We'll write the first smart contract in JavaScript. Let's head to [Icetea Studio](https://studio.icetea.io) and create an "Empty JavaScript Smart Contract".
+We'll write the first smart contract in JavaScript. Let's head to [PolkaFoundry Studio](https://studio.polkafoundry.com) and create an "Empty JavaScript Smart Contract".
 
 Click on the `mycontract.djs` file.  It should look like this.
 ```javascript
@@ -54,7 +54,7 @@ First, rename the the class to `SimpleStore` and add a field named `value`.
   value = 0
 }
 ```
-`0` is the initial value. If you don't set it, it defaults to `undefined`. The code snippet above uses [class instance field syntax](https://developers.google.com/web/updates/2018/12/class-fields) which is an ES2019 proposal. Icetea supports most of the recent ES proposals out of the box, so you can utilize modern JavaScript confidently without the need of transpiling with tools like Babel.
+`0` is the initial value. If you don't set it, it defaults to `undefined`. The code snippet above uses [class instance field syntax](https://developers.google.com/web/updates/2018/12/class-fields) which is an ES2019 proposal. PolkaFoundry supports most of the recent ES proposals out of the box, so you can utilize modern JavaScript confidently without the need of transpiling with tools like Babel.
 
 ### Specify contract state
 
@@ -128,16 +128,16 @@ You can also remove `getValue` method and make `value` externally assessible by 
 The only valid state access decorator for fields is `@view`. Therefore, you cannot mark `value` as `@transaction` and remove `setValue` method.
 :::
 
-That's it. Next, we'll deploy it to the Icetea testnet for testing.
+That's it. Next, we'll deploy it to the PolkaFoundry testnet for testing.
 
 ### Deploy and test
 
-Take a look at the Icetea Studio toolbar.
+Take a look at the PolkaFoundry Studio toolbar.
 
-<img src='./toolbar.png' style='width:342px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='Icetea Studio Toolbar'>
+<img src='./toolbar.png' style='width:342px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='PolkaFoundry Studio Toolbar'>
 
 - __Build__: compile the contract. It will output to `out/mycontract.js` file upon success. _If you change the file content, don't forget to save (Ctrl/Cmd + S) the file before compiling._
-- __Deploy__: deploy the compiled contract to Icetea testnet
+- __Deploy__: deploy the compiled contract to PolkaFoundry testnet
 - __Build & Deploy__: compile first, then deploy if compiling succeeded
 
 After deployment, you can call the contract's methods using the _Call Contracts_ panel on the right-hand side of the studio.
@@ -145,7 +145,7 @@ After deployment, you can call the contract's methods using the _Call Contracts_
 <img src='./call.png' style='width:349px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='Call Contracts'>
 
 ::: tip
-Each deployed contract is given an address in form of `teat1...`. You can call it anytime later if you know the address. Find the address in the Icetea Studio's Output panel after each time you deploy.
+Each deployed contract is given an address in form of `teat1...`. You can call it anytime later if you know the address. Find the address in the PolkaFoundry Studio's Output panel after each time you deploy.
 :::
 
 ### Add type checking
@@ -162,10 +162,10 @@ But what if you want to store only numbers? Just add some [Flow](https://flow.or
 }
 ```
 
-Because they are valid Flow type annotations, you can use [Flow tool](https://flow.org/en/docs/install/) for _static_ type checking if you wish to. Besides, Icetea provides some basic _runtime_ type checking. Try deploying the above contract and call `setValue`, passing a string to see what happens!
+Because they are valid Flow type annotations, you can use [Flow tool](https://flow.org/en/docs/install/) for _static_ type checking if you wish to. Besides, PolkaFoundry provides some basic _runtime_ type checking. Try deploying the above contract and call `setValue`, passing a string to see what happens!
 
 ::: tip NOTE
-Icetea does not perform runtime type check for nested objects. This is done intentionally for the sake of simplicity and performance. If you want to perform complex runtime type checking, no need to worry. Icetea allows your contract to access robust type checking and input validation packages like `@hapi/joi` , `ajv` , `validator` to get the job done.
+PolkaFoundry does not perform runtime type check for nested objects. This is done intentionally for the sake of simplicity and performance. If you want to perform complex runtime type checking, no need to worry. PolkaFoundry allows your contract to access robust type checking and input validation packages like `@hapi/joi` , `ajv` , `validator` to get the job done.
 ::: 
 
 ### Validate input
@@ -233,11 +233,11 @@ const { validate } = require(';')
 The `;` package's `validate` function will throw if it encounters errors, so we don't need to throw manually. It will return the sanitized value on success.
 
 ::: tip
-The magic `;` module is an alias to the `@iceteachain/utils/utils` package. It also exports some other handy functions.
+The magic `;` module is an alias to the `@PolkaFoundrychain/utils/utils` package. It also exports some other handy functions.
 
 - `revert`: stop processing and undo all state changes. `revert(message)` is equivalent to `throw new Error(message)`
 - `expect`: revert the transaction if the specified condition is not met. It is similar to Solidity's `require` function.
-- `toMicroUnit`/`toStandardUnit`: convert a currency back and forth between the standard unit (which is user-friendly) and micro unit (which is used internally by Icetea to store balance, fees, etc.)
+- `toMicroUnit`/`toStandardUnit`: convert a currency back and forth between the standard unit (which is user-friendly) and micro unit (which is used internally by PolkaFoundry to store balance, fees, etc.)
 
 > 1 standard unit = 10<sup>6</sup> micro unit
 :::
@@ -253,7 +253,7 @@ Our `SimpleStore` works just fine, but let's imagine this: the client requests o
 - What is the old value
 - What is the new value
 
-How do we do that with Icetea blockchain?
+How do we do that with PolkaFoundry blockchain?
 
 ### Interact with the runtime environment
 
@@ -376,19 +376,19 @@ class SimpleStore {
 }
 ```
 
-That's it. Now go playing with it. Here is the [complete version on Icetea Studio](https://studio.icetea.io/?f=t1d380n4ssm).
+That's it. Now go playing with it. Here is the [complete version on PolkaFoundry Studio](https://studio.polkafoundry.com/?f=t1d380n4ssm).
 
 ## Programmatically call contracts
 
 In this step, we will learn how to programmatically interact with the `SimpleStore` contract we created during the last step.
 
-Any Icetea node may choose to expose an RPC interface so that clients can query for blockchain data and interact with contracts. However, working with that RPC directly is a little cumbersome, so we will make use of the [@iceteachain/web3](https://github.com/TradaTech/icetea-web3) library. It is a handy wrapper around the Icetea node' RPC.
+Any PolkaFoundry node may choose to expose an RPC interface so that clients can query for blockchain data and interact with contracts. However, working with that RPC directly is a little cumbersome, so we will make use of the [@PolkaFoundrychain/web3](https://github.com/TradaTech/PolkaFoundry-web3) library. It is a handy wrapper around the PolkaFoundry node' RPC.
 
-### Setup @iceteachain/web3
+### Setup @PolkaFoundrychain/web3
 
-To start, let's create a new pen on [codepen.io](https://codepen.io). First, add link to `@iceteachain/web3` to the beginning of your HTML.
+To start, let's create a new pen on [codepen.io](https://codepen.io). First, add link to `@PolkaFoundrychain/web3` to the beginning of your HTML.
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@iceteachain/web3@0.2.5/dist/browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@PolkaFoundrychain/web3@0.2.5/dist/browser.min.js"></script>
 ```
 
 Then, craft a simple UI.
@@ -402,11 +402,11 @@ It should look something like this.
 
 <img src='./simplestore.png' style='width:207px;box-shadow:0 0 3px 0 rgba(0,0,0,.2)' alt='SimpleStore Web UI'>
 
-Switch to JS editor and add some code to initialize an `IceteaWeb3` instance.
+Switch to JS editor and add some code to initialize an `PolkaFoundryWeb3` instance.
 
 ```js
-// wrap around an Icetea node' RPC
-const tweb3 = new icetea.IceteaWeb3('wss://rpc.icetea.io/websocket')
+// wrap around an PolkaFoundry node' RPC
+const tweb3 = new PolkaFoundry.PolkaFoundryWeb3('wss://rpc.polkafoundry.com/websocket')
 
 // create a new random account, needed when calling setValue
 tweb3.wallet.createAccount()
@@ -492,10 +492,10 @@ Just like we access a contract's method with `contract.methods.someMethodName`, 
 Events emit before the time of subscription will not trigger the callback.
 :::
 
-If you've gone this far, well-done! You are an Icetea Blockchain Developer now :D. Let's take a look at what we've done.
+If you've gone this far, well-done! You are an PolkaFoundry Blockchain Developer now :D. Let's take a look at what we've done.
 
-<iframe height="484" style="width: 100%;" scrolling="no" title="Icetea: NumberStore" src="//codepen.io/thith/embed/wbRLyd/?height=484&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/thith/pen/wbRLyd/'>Icetea: NumberStore</a> by Truong Hong Thi
+<iframe height="484" style="width: 100%;" scrolling="no" title="PolkaFoundry: NumberStore" src="//codepen.io/thith/embed/wbRLyd/?height=484&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/thith/pen/wbRLyd/'>PolkaFoundry: NumberStore</a> by Truong Hong Thi
   (<a href='https://codepen.io/thith'>@thith</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

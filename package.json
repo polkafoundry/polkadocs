@@ -1,10 +1,10 @@
 {
-  "name": "icetea-docs",
+  "name": "PolkaFoundry-docs",
   "version": "0.1.0",
-  "description": "Documentation for Icetea blockchain",
+  "description": "Documentation for PolkaFoundry blockchain",
   "main": "index.js",
   "repository": "https://github.com/TradaTech/docs.git",
-  "author": "Trada Tech <iceteachain@gmail.com>",
+  "author": "Trada Tech <PolkaFoundrychain@gmail.com>",
   "license": "MIT",
   "scripts": {
     "docs:dev": "vuepress dev docs",

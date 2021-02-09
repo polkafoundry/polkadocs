@@ -1,2 +1,2 @@
 # docs
-Icetea Documentation
+PolkaFoundry Documentation
