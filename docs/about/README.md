@@ -1,5 +1,13 @@
 # About PolkaFoundry
 
+::: warning NOTICE
+
+PolkaFoundry roadmap consists of 2 phases. In phase 1, the platform is developed using Tendermint engine. In phase 2, it is rebuilt using Substrate framework, levaraging the Polkadot ecosystem while utilizing the knowhow and innovative features of phase 1.
+
+We are in the process to migrate this documentation from phase 1 to phase 2. As a result, some parts are not up-to-date yet.
+
+:::
+
 ## Background
 
 Blockchain is a useful and revolutionary technology which is getting a lot of attention in recent years. However, despite much anticipation, no significant blockchain adoption has been observed. 

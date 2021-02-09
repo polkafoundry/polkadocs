@@ -59,7 +59,13 @@ __Total Supply:__ 200,000,000 PKF
 
 **Note** _Team_ in the charts includes Team, Early Investors, and Advisors.
 
-## Collators Economics
+## Collator Economics
+
+::: warning NOTICE
+
+This section is for phase 1 (Tendermint with validators) and not yet updated to reflect phase 2 (Polkadot parachain with collators) yet.
+
+:::
 
 To attract dapp developers and users, PolkaFoundry's transaction fees are cheap, just enough to prevent spamming. Therefore, to ensure collators profitable, most of collators' rewards should come from other sources.
 
@@ -67,7 +73,7 @@ PolkaFoundry blockchain reserves 12% of total supply for Collator Reward Fund (V
 
 The VR Fund will be used up after 5 years. In the first 3 years, the entire collator rewards come from this fund. From year 4 onward, PolkaFoundry starts to mint PKF gradually to compensate the collators.
 
-| Year | No. of<br>Validators | Monthly<br>VR Fund | Monthly<br>Mint | Monthly<br>Reward/Collator |
+| Year | No. of<br>Collators | Monthly<br>VR Fund | Monthly<br>Mint | Monthly<br>Reward/Collator |
 |------|------------|-----|------|-------|
 | 1 ~ 3| 30 | 480,000 | 0 | 16,000 PKF |
 | 4 ~ 5| 50 |  280,000 | 370,000 | 13,000 PKF |

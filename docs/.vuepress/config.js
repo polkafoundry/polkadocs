@@ -10,7 +10,7 @@ module.exports = {
     ['meta', { prefix: ogprefix, property: 'og:title', content: title }],
     ['meta', { prefix: ogprefix, property: 'og:description', content: description }],
     ['meta', { prefix: ogprefix, property: 'twitter:title', content: title }],
-    ['meta', { prefix: ogprefix, property: 'og:image', content: 'https://polkafoundry.com/images/share/home.png' }],
+    ['meta', { prefix: ogprefix, property: 'og:image', content: 'https://polkafoundry.com/og.png' }],
     ['link', { rel: 'icon', href: 'https://scan.polkafoundry.com/favicon.svg' }],
   ],
   theme: "book",
