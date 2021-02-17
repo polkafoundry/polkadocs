@@ -1,5 +1,7 @@
 # Token Economics
 
+__Subject to change.__
+
 ## Token Information
 
 - Token Name: __PKF token__
