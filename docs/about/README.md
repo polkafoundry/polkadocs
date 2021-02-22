@@ -48,7 +48,7 @@ The blockchain’s chaotic gold rush will be over soon. When the dust settles, o
 PolkaFoundry puts an end to the friction in dapps' UX to make decentralized applications (dApps) more approachable for end-users, to the point that they will not notice those are built on blockchain. At the moment, none of the current blockchains can do that. Our mission is to realize the world’s first killer blockchain app - one that is used by millions.
 
 ## PolkaFoundry Ecosystem
-![PolkaFoundry Ecosystem]
+![PolkaFoundry Ecosystem](./ecosystem.jpg)
 
 # What can be built on PolkaFoundry?
 
