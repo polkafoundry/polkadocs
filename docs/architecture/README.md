@@ -1,4 +1,4 @@
-# PolkaFoundry Architecture
+# Platform Architecture
 
 To understand how PolkaFoundry resolves the blockchain's challenges, first, we need to take a look at its system architecture.
 

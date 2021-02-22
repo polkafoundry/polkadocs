@@ -1,4 +1,4 @@
-# What can be built on PolkaFoundry?
+# Use Cases
 
 ## Open Lending Platforms
 PolkaFoundry can connect dapps to reliable sources for price feeds and credit checks to automate loan decisions.

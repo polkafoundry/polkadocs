@@ -1,4 +1,4 @@
-# PolkaFoundry Features and Services
+# Features and Services
 
 ## UX-enabling features
 ### PolkaID
