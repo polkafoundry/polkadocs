@@ -30,7 +30,7 @@ PolkaFoundry’s mission is to become the Polkadot ecosystem’s number-one one-
 
 Our vision is to empower every person on earth with complete control and the freedom to utilize their valuable assets in a way that is digitalized, secure, and accessible. Developers then could choose either centralized or decentralized technology, or a combination of both, depending solely on the value of application data and trustworthiness of relevant parties instead of the maturity and usability of the underlying technology.
 
-## PolkaFoundry's Key Point
+## PolkaFoundry's Key Points
 
 1. Leveraging the thrilling ecosystem, true interoperability, and the unprecedented scalability of Polkadot and Substrate;
 2. Unique UX-enabling features bring dapps to a much broader population;
