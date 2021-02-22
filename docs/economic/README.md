@@ -19,20 +19,20 @@ _PKF token_ is an Ethereum's __ERC-20__ token. In the future, when PolkaFoundry 
 
 ## Token Allocation
 
-TBD.
+TBD
 
 ## Token Sales
 ### Sale Rounds
 
-TBD.
+TBD
 
 ### Usage of Fund Raised
 
-TBD.
+TBD
 
 ## Token Release Schedule
 
-TBD.
+TBD
 
 ## Collator Economics
 
