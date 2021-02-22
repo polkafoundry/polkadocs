@@ -13,7 +13,7 @@ Thus, PolkaID is born to tackle this issue. It encrypts a user’s private key, 
 
 Current blockchains require users to use private keys directly to sign every transaction. This repetition task increases the risk of leaking private keys, which, once happens, will lead to catastrophic consequences. As a result, blockchain apps often request their users to perform many inconvenient steps that drastically damage UX. 
 
-With PolkaFoundry blockchain, a signing token can be used in place of the private key for signing transactions. Each signing token has an expiry time and a limited set of permissions (e.g. can only sign transactions whose values are within predefined limits). Thus, leaking signing tokens yield much less serious consequences compared to that of private keys. By using Signing Token, blockchain apps can later introduce handy features such as "remember me on this device" as well as increase session timeout (no need to re-login after a while of inactivity). 
+With PolkaFoundry blockchain, a signing key can be used in place of the private key for signing transactions. Each signing key has an expiry time and a limited set of permissions (e.g. can only sign transactions whose values are within predefined limits). Thus, leaking signing keys yield much less serious consequences compared to that of private keys. By using Signing Token, blockchain apps can later introduce handy features such as "remember me on this device" as well as increase session timeout (no need to re-login after a while of inactivity). 
 
 ### Account Classification
 
