@@ -9,7 +9,7 @@ To prevent central authorities from abusing, blockchain apps require users to ke
 
 Thus, PolkaID is born to tackle this issue. It encrypts a user’s private key, splits it into parts, and safely stores it on multiple independent and secure key management services. This lifts the burden of keeping keys off users’ shoulder, while still preventing any single central authority from gaining access to the keys. Furthermore, recovery and 2-factor authentication are possible for PolkaID; and thus, onboarding and authentication will be much smoother with a password-less experience – using either a phone number, email, or social accounts to register. 
 
-### Signing Token
+### Signing Key
 
 Current blockchains require users to use private keys directly to sign every transaction. This repetition task increases the risk of leaking private keys, which, once happens, will lead to catastrophic consequences. As a result, blockchain apps often request their users to perform many inconvenient steps that drastically damage UX. 
 
@@ -21,7 +21,7 @@ On current blockchains, all accounts are bank accounts (that is, they store cryp
 
 PolkaFoundry distinguishes between bank accounts and regular accounts. Regular accounts cannot receive and store cryptocurrency while bank accounts still function as they have always been. This is a meaningful piece of information for apps to balance the trade-off between security and convenience. For example, apps can include a "don't ask again" checkbox to reduce the number of future permission comfirmations and password prompts. 
 
-### External Payer
+### Flexible Payer
 
 A user has to stake or pay some amount of cryptocurrency (often called gas or fees) on available blockchains for each transaction he/she makes. Therefore, to try out an application, they will have to go to some unfamiliar and risky exchanges to buy some cryptocurrency first. This makes onboarding an nasty experience right from the beginning. 
 
