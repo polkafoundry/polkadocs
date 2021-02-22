@@ -37,15 +37,5 @@ Our vision is to empower every person on earth with complete control and the fre
 3. EVM-compatible, straightforward to migrate from Ethereum;
 4. Built-in Made-for-DeFi services make it easy for DeFi apps to manage identities, store files, and access Oracle data.
 
-## What does PolkaFoundry help?
-
-#### The blockchain landscape and roadblocks
-
-The blockchain’s chaotic gold rush will be over soon. When the dust settles, only the ones who solve real-world problems and bring value to people will survive and prosper. However, blockchain applications nowadays still put heavy burdens on users. Indeed, while the benefits blockchain promises are abstract and ambiguous, the friction it introduces is very concrete and immediate.
-
-#### PolkaFoundry’s distinctive and practical approach
-
-PolkaFoundry puts an end to the friction in dapps' UX to make decentralized applications (dApps) more approachable for end-users, to the point that they will not notice those are built on blockchain. At the moment, none of the current blockchains can do that. Our mission is to realize the world’s first killer blockchain app - one that is used by millions.
-
 ## PolkaFoundry Ecosystem
 ![PolkaFoundry Ecosystem](./pkfecosystem.jpg)
