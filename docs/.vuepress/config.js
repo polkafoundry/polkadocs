@@ -31,6 +31,7 @@ module.exports = {
         '/feature/',
         '/architecture/',
         '/concept/',
+        '/usecases/',
         '/economic/',
         '/roadmap/'
         ]
