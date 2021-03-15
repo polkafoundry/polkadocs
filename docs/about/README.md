@@ -2,17 +2,13 @@
 
 ::: warning
 
-PolkaFoundry official website is https://polkafoundry.com. Beware of fake sites.
+PolkaFoundry official website is [https://polkafoundry.com](https://polkafoundry.com). It is polkafoundry__.com__ Beware of fake sites.
 
 :::
 
-::: warning NOTICE
+>> PolkaFoundry roadmap consists of 2 phases. In phase 1, the platform is developed using Tendermint engine. In phase 2, it is rebuilt using Substrate framework, levaraging the Polkadot ecosystem while utilizing the knowhow and innovative features of phase 1.
 
-PolkaFoundry roadmap consists of 2 phases. In phase 1, the platform is developed using Tendermint engine. In phase 2, it is rebuilt using Substrate framework, levaraging the Polkadot ecosystem while utilizing the knowhow and innovative features of phase 1.
-
-We are in the process to migrate this documentation from phase 1 to phase 2. As a result, some parts are not up-to-date yet.
-
-:::
+>> We are in the process to migrate this documentation from phase 1 to phase 2. As a result, some parts are not up-to-date yet.
 
 ## Background
 
