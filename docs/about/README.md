@@ -1,12 +1,14 @@
 # About PolkaFoundry
 
-::: warning NOTICE
+::: warning
 
-PolkaFoundry roadmap consists of 2 phases. In phase 1, the platform is developed using Tendermint engine. In phase 2, it is rebuilt using Substrate framework, levaraging the Polkadot ecosystem while utilizing the knowhow and innovative features of phase 1.
-
-We are in the process to migrate this documentation from phase 1 to phase 2. As a result, some parts are not up-to-date yet.
+PolkaFoundry official website is [https://polkafoundry.com](https://polkafoundry.com). It is polkafoundry<b>.com</b>. Beware of fake sites. PKF Official ERC-20 Contract is __0x8b39b70e39aa811b69365398e0aace9bee238aeb__.
 
 :::
+
+> PolkaFoundry roadmap consists of 2 phases. In phase 1, the platform is developed using Tendermint engine. In phase 2, it is rebuilt using Substrate framework, levaraging the Polkadot ecosystem while utilizing the knowhow and innovative features of phase 1.
+
+> We are in the process to migrate this documentation from phase 1 to phase 2. As a result, some parts are not up-to-date yet.
 
 ## Background
 
