@@ -19,6 +19,7 @@ module.exports = {
     nav: [
       { text: 'Introduction', link: '/about/' },
       { text: 'Developer Guide', link: '/developer/' },
+      { text: 'Officical Links', link: '/contact/' },
       { text: 'PolkaFoundry', link: 'https://polkafoundry.com' },
     ],
     sidebar: [
@@ -42,6 +43,14 @@ module.exports = {
         sidebarDepth: 1,
         children: [
         '/developer/'
+        ]
+      },
+      {
+        title: '🔗 Officical Links',
+        collapsable: false,
+        sidebarDepth: 1,
+        children: [
+        '/contact/'
         ]
       },
   //    '/faq/',
