@@ -1,7 +1,5 @@
 # Token Economics
 
-__Subject to change.__
-
 ## Token Information
 
 - Token Name: __PKF token__
@@ -37,12 +35,6 @@ _PKF token_ is an Ethereum's __ERC-20__ token. In the future, when PolkaFoundry 
 <p><img src='./rlsSchedule.svg' style='width:566px;height:570' alt='Token Release Schedule'></p>
 
 ## Collator Economics
-
-::: warning NOTICE
-
-This section is for phase 1 (Tendermint with validators) and not yet updated to reflect phase 2 (Polkadot parachain with collators) yet.
-
-:::
 
 To attract dapp developers and users, PolkaFoundry's transaction fees are cheap, just enough to prevent spamming. Therefore, to ensure collators profitable, most of collators' rewards should come from other sources.
 
